@@ -1,6 +1,6 @@
 @props(['blogchicken'])
-<div class="card" style="width:18rem;" id="blog-card">
-  <img src="/img/fish.jpg" class="card-img-top" alt="...">
+<div class="card" id="blog-card">
+  <img src="/storage/{{$blogchicken->thumbnail}}" class="card-img-top" alt="picture">
   <div class="card-body">
     <h5 class="card-title">{{$blogchicken->title}}</h5>
     <p class="card-text">{{$blogchicken->intro}}</p>

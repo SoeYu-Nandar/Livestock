@@ -51,15 +51,36 @@
     </li>
 
     @auth
+    <div class="dropdown">
+      <a class="btn text-light dropdown-toggle border-0 my-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+       
+    <img src="{{auth()->user()->avatar}}" width="30" height="30" class="rounded-circle mt-1">
+    
+      {{auth()->user()->name}}
+    
+      </a>
+
+      <ul class="dropdown-menu">
+        <li><form action="/logout" method="POST">@csrf
+          
+            <button type="submit" class="btn m-2" style="border:none;">ထွက်ရန်</button>
+          
+        </form> </li>
+        
+      </ul>
+    </div>
+
+    {{-- @auth
     <img src="{{auth()->user()->avatar}}" width="30" height="30" class="rounded-circle mt-3">
     <li class="nav-item mt-3 ms-1 text-light">
       {{auth()->user()->name}}
-    </li>
-    <form action="/logout" method="POST">@csrf
+    </li> --}}
+
+    {{-- <form action="/logout" method="POST">@csrf
       <li class="nav-item">
-        <button type="submit" class="btn nav-link m-2 text-light" style="border:1px solid red;">ထွက်ရန်</button>
+        <button type="submit" class="btn btn-danger nav-link m-2 text-light">ထွက်ရန်</button>
       </li>
-    </form>
+    </form> --}}
     @else
     <li class="nav-item">
       <a class="btn btn-primary m-2 text-light" href="/register">စာရင်းသွင်းရန်</a>

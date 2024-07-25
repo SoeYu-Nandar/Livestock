@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Type;
 use App\Models\Category;
 use App\Models\Blogchicken;
 use Illuminate\Http\Request;
@@ -16,7 +17,8 @@ class AdminBlogController extends Controller
     public function create()
     {
         return view('admin.blogs.create', [
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'types' =>      Type::all()
         ]);
     }
     public function store(Request $request)
@@ -26,7 +28,8 @@ class AdminBlogController extends Controller
             "slug" =>  ["required", Rule::unique('blogchickens', 'slug')],
             "intro" =>  ["required"],
             "body" =>  ["required"],
-            "category_id" =>  ["required", Rule::exists('categories', 'id')]
+            "category_id" =>  ["required", Rule::exists('categories', 'id')],
+            "type_id" =>  ["required", Rule::exists('types', 'id')]
         ]);
         $formData['user_id'] = auth()->id();
         $formData['thumbnail'] = $request->file('thumbnail')->store('thumbnails');

@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 mx-auto text-center">
-                <img src="/img/fish.jpg" class="card-img-top" alt="..." />
+                <img src="/storage/{{$blogchicken->thumbnail}}" class="card-img-top" alt="..." />
                 <h3 class="my-3">{{$blogchicken->title}}</h3>
                 <div class="tags mb-2">
                     အမျိုးအစား - 

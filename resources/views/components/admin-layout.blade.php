@@ -29,13 +29,13 @@
           </a>
           <a href="#" class="list-group-item list-group-item-action">
             <i class="bi bi-people"></i>
-            <span class="d-none d-lg-inline">Users</span>
+            <span class="d-none d-lg-inline">User List</span>
             <span class="d-none d-lg-inline badge bg-danger
             rounded-pill float-end">20</span>
             </a>
             <a href="#" class="list-group-item list-group-item-action">
               <i class="bi bi-journal-check"></i>
-            <span class="d-none d-lg-inline">Check Blogs</span>
+            <span class="d-none d-lg-inline">Blogs List</span>
             </a>
             <a href="#" class="list-group-item list-group-item-action">
               <i class="bi bi-bell"></i>
@@ -60,9 +60,8 @@
               </form>
             </span>
             </a>
-            </div>
-            
-            
+            </div>        
+            {{--slide bar--}}
       </nav>
         <main class="col-10 bg-body-secondary">
           <nav class="navbar navbar-expand-lg navbar-light bg-dark-subtle">
