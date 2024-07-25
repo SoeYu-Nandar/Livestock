@@ -1,0 +1,9 @@
+body {
+    margin: 3em;
+}
+#blog-card:hover {
+    transform: scale(1.1);
+}
+#blog-card{
+    transition:transform .5s;
+}
