@@ -9,11 +9,12 @@ class CommentController extends Controller
 {
     public function store(Request $request,Blogchicken $blogchicken)
     {
+       
         $request->validate([
             'body' => 'required | min:10'
         ]);
         //comment store
-        $blogchicken->comment()->create([
+        $blogchicken->comments()->create([
             'body' => request('body'),
             'user_id' => auth()->id()
         ]);

@@ -1,5 +1,5 @@
 <x-admin-layout>
-    <h3 class="my-3 text-center">Blog create form</h3>
+    <h3 class="my-3 text-center text-primary">Blog Create Form</h3>
     <x-card-wrapper>
         <form enctype="multipart/form-data" action="/admin/blogs/store" method="POST">
             @csrf
@@ -8,6 +8,7 @@
             <x-form.input name="intro" />
             <x-form.textarea name="body" />
             <x-form.input name="thumbnail" type="file"/>
+            
             <x-form.input-wrapper>
                 <x-form.label name="category" />
                 <select name="category_id" id="category" class="form-control">

@@ -1,6 +1,5 @@
-
-        <div class="dropdown mb-2 mt-2 text-center">  
-          <h5 class="py-2">မွေးမြူရေးဗဟုသုတများအားဖတ်ရှုရန်</h5>
+        <div class="dropdown mb-5 mt-2 text-center">  
+          <h5 class="py-2 fw-bold">မွေးမြူရေးဗဟုသုတများအားဖတ်ရှုရန်</h5>
             <button class="btn bg-info-subtle dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               {{isset($currentCategory) ? $currentCategory->name : 'အမျိုးအစားများ'}}
             </button>

@@ -34,8 +34,12 @@ class Blogchicken extends Model
     {
         return $this->belongsTo(Type::class);
     }
-    public function comment()
+    public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

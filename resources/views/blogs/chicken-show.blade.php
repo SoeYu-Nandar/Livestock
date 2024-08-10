@@ -30,8 +30,10 @@
             @endauth
         </div>
     </section>
-    
-    <x-comments :comments="$blogchicken->comment"/>
+
+    @if ($blogchicken->comments->count())
+    <x-comments :comments="$blogchicken->comments()->latest()->paginate(3)" />
+    @endif
    
     <x-blog_you_may_like_section :randomBlogs="$randomBlogs" />
 </x-layout>

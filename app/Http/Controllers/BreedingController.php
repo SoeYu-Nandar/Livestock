@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Pigbreeding;
+use App\Models\Fishbreeding;
+use Illuminate\Http\Request;
+use App\Models\Chickenbreeding;
+
+class BreedingController extends Controller
+{
+    public function chicken_index()
+    {
+       return view('breedings.cbreeding-section',[
+         'cbreedings' => Chickenbreeding::all()
+       ]);
+    }
+    public function pig_index()
+    {
+       return view('breedings.pbreeding-section',[
+         'pbreedings' => Pigbreeding::all()
+       ]);
+    }
+    public function fish_index()
+    {
+       return view('breedings.fbreeding-section',[
+         'fbreedings' => Fishbreeding::all()
+       ]);
+    }
+}

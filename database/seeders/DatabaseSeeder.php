@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Type;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
+use App\Models\Company;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
 
@@ -61,6 +62,17 @@ class DatabaseSeeder extends Seeder
             'name' => 'ငါး',
             'slug' => 'fish',
         ]);
-        
+        Company::create([
+            'name' => 'Sunjin',
+            'slug' => 'sunjin_myanmar',
+        ]);
+        Company::create([
+            'name' => 'Deheus',
+            'slug' => 'deheus_myanmar',
+        ]);
+        Company::create([
+            'name' => 'NewHope',
+            'slug' => 'newhope_myanmar',
+        ]);
     }
 }
