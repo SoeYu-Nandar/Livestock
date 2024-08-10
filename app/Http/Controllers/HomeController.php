@@ -10,9 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
-        $userid = $user->id;
-        $count = Cart::where('user_id',$userid)->count();
-        return view('index',compact('count'));
+       
+        return view('index');
     }
 }
