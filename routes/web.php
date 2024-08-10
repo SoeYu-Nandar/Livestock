@@ -52,6 +52,7 @@ Route::get('/pig_breedings',[BreedingController::class,'pig_index']);
 Route::get('/fish_breedings',[BreedingController::class,'fish_index']);
 
 Route::post('/add_cart',[CartController::class,'add_cart']);
+Route::get('/show_cart',[CartController::class,'show_cart']);
 
 Route::get('/register',[AuthController::class,'create']);
 Route::post('/register',[AuthController::class,'store']);

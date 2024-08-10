@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use id;
 use App\Models\Type;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Blogchicken;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class AdminBlogController extends Controller
 {
+    
     public function index()
     {
         return view('admin.blogs.index',[
@@ -26,6 +29,7 @@ class AdminBlogController extends Controller
     }
     public function store(Request $request)
     {
+        if(Auth::check()){
         $formData = $request->validate([
             "title" => ["required"],
             "slug" =>  ["required", Rule::unique('blogchickens', 'slug')],
@@ -34,8 +38,11 @@ class AdminBlogController extends Controller
             "category_id" =>  ["required", Rule::exists('categories', 'id')],
             "type_id" =>  ["required", Rule::exists('types', 'id')]
         ]);
-        $formData['user_id'] = auth()->id();
+        $formData['user_id'] = Auth::id();
         $formData['thumbnail'] = $request->file('thumbnail')->store('thumbnails');
+    }else{
+        return redirect('/login');
+    }
         Blogchicken::create($formData);
 
         return redirect('/admin/blogs/show');
@@ -57,6 +64,7 @@ class AdminBlogController extends Controller
     }
     public function update(Request $request,Blogchicken $blogchicken)
     {
+        
         $formData = $request->validate([
             "title" => ["required"],
             "slug" =>  ["required", Rule::unique('blogchickens', 'slug')->ignore($blogchicken->id)],
@@ -65,7 +73,7 @@ class AdminBlogController extends Controller
             "category_id" =>  ["required", Rule::exists('categories', 'id')],
             "type_id" =>  ["required", Rule::exists('types', 'id')]
         ]);
-        $formData['user_id'] = auth()->id();
+        $formData['user_id'] = Auth::id();
         $formData['thumbnail'] = $request->file('thumbnail') ?
             $request->file('thumbnail')->store('thumbnails') : $blogchicken->thumbnail;
         $blogchicken->update($formData);

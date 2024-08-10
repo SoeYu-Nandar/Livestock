@@ -1,5 +1,8 @@
 @props(['chickenfood'])
 <x-layout>
+  @if (session('success'))
+  <div class="alert alert-success text-center">{{session('success')}}</div>
+  @endif
     <div class="container my-3">
         <div class="card" style="border:none;">
         <div class="row">

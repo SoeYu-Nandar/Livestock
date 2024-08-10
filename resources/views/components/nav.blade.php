@@ -43,7 +43,11 @@
     <li class="nav-item my-2">
       <a class="nav-link text-light" href="/faq">FAQ</a>
     </li>
-
+    @auth
+    <li class="nav-item my-2 mx-3">
+      <a class="nav-link rounded-pill bg-info text-light" href="/show_cart"><i class="bi bi-cart-check-fill"></i></a>
+    </li>
+    @endauth
     @auth
     <div class="dropdown">
       <a class="btn text-light dropdown-toggle border-0 my-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
