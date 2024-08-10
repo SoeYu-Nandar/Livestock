@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CfoodController;
 use App\Http\Controllers\DfoodController;
 use App\Http\Controllers\PfoodController;
@@ -19,9 +20,7 @@ use App\Http\Controllers\BlogChickenController;
 use App\Http\Controllers\AdminBreedingController;
 use App\Http\Controllers\AdminMedicineController;
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [HomeController::class,'index']);
 Route::get('/blogs',[BlogChickenController::class,'index']);
 Route::get('/blogs/{blogchicken:slug}',[BlogChickenController::class,'show']);
 
@@ -53,6 +52,7 @@ Route::get('/fish_breedings',[BreedingController::class,'fish_index']);
 
 Route::post('/add_cart',[CartController::class,'add_cart']);
 Route::get('/show_cart',[CartController::class,'show_cart']);
+Route::delete('/remove_cart/{id}/delete',[CartController::class,'remove_cart']);
 
 Route::get('/register',[AuthController::class,'create']);
 Route::post('/register',[AuthController::class,'store']);

@@ -45,7 +45,10 @@
     </li>
     @auth
     <li class="nav-item my-2 mx-3">
-      <a class="nav-link rounded-pill bg-info text-light" href="/show_cart"><i class="bi bi-cart-check-fill"></i></a>
+      <a class="nav-link rounded-pill bg-info text-light" href="/show_cart">
+        <i class="bi bi-cart-check-fill"></i>
+        <span class="badge bg-danger rounded-pill position-absolute top-0">{{$count}}</span>
+      </a>
     </li>
     @endauth
     @auth

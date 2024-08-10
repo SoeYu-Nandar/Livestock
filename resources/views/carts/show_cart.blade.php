@@ -1,5 +1,8 @@
 <x-layout>
-    <h3 class="text-center my-2 text-success">Order Table</h3>
+  @if(session('warning'))
+  <div class="alert alert-warning text-center">{{session('warning')}}</div>
+  @endif
+    <h4 class="text-center my-2 text-success fw-bold">ဈေးဝယ်ယူသည့်စာရင်း</h4>
     <x-card-wrapper>
         <table class="table">
             <thead class="table-success">
@@ -18,18 +21,13 @@
                 <td>{{$cart->quantity}}</td>
                                 
                 <td>
-                  <form action="{{ url('add_cart') }}" method="POST">
+                  <form action="/remove_cart/{{$cart->id}}/delete" method="POST">
                     @csrf
-                    
+                    @method('DELETE')
                     <div class="row d-flex justify-content-center">
-                      <div class="col-12 col-md-3 mb-2 mb-md-0">
-                        <button class="btn btn-warning w-100 rounded-pill" type="submit">
-                            <i class="bi bi-recycle"></i>
-                          </button>
-                      </div>
-                      <div class="col-12 col-md-3">
+                      <div class="col-12 col-md-6">
                         <button class="btn btn-danger w-100 rounded-pill" type="submit">
-                            <i class="bi bi-trash3-fill"></i>
+                            <i class="bi bi-trash3-fill">ပယ်ဖျက်မည်</i>
                         </button>
                       </div>
                     </div>
