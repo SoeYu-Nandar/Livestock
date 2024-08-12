@@ -2,6 +2,16 @@
     @if (session('danger'))
     <div class="alert alert-danger text-center">{{session('danger')}}</div>
     @endif
+    {{-- quantity check --}}
+    @if($lowStockProducts->isNotEmpty())
+            <div class="alert alert-danger text-center">
+                <b class="text-danger">Warning!</b><b>The following products are low in stock:</b></br>
+                    @foreach($lowStockProducts as $pigbreeding)
+                        {{ $pigbreeding->description }} - Only {{ $pigbreeding->quantity }} left</br>
+                    @endforeach
+                    <b class="text-secondary">Please fill the stock quantity!</b>
+            </div>
+    @endif
     <h3 class="my-3 text-center text-primary">Pig Breeding List</h3>
     <x-card-wrapper>
         <table class="table text-center">

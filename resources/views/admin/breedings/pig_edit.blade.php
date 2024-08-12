@@ -4,6 +4,7 @@
         <form enctype="multipart/form-data" action="/admin/breedings/pig_breeding/{{$pigbreeding->id}}/update" method="POST">
             @method('patch')
             @csrf
+            <x-form.input name="name" value="{{$pigbreeding->name}}"/>
             <x-form.input name="description"  value="{{$pigbreeding->description}}"/>
             <x-form.input name="image" type="file"/>
             <img src="/storage/{{$pigbreeding->image}}" width="200px" height="100px" alt="">

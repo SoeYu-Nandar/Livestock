@@ -12,10 +12,13 @@ class AdminMedicineController extends Controller
         return view('admin.medicines.create');
    }
    public function show()
-   {
-        return view('admin.medicines.show',[
-          'medicines' => Medicine::latest()->paginate(6)
-        ]);
+    {     
+        $medicines = Medicine::latest()->paginate(6);
+            // Check for low stock products
+        $lowStockProducts = $medicines->filter(function ($product) {
+            return $product->quantity < 3;
+        });
+        return view('admin.medicines.show',compact('medicines', 'lowStockProducts'));
    }
    public function store(Request $request)
    {

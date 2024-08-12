@@ -1,6 +1,9 @@
 <x-layout>
   <marquee behavior="" direction="" class="my-2" style="color:red;"><img src="/img/tunaicon.gif" style="width:40px;height:40px;">ငါးသားပေါက်ဈေးနှုန်းများသည်အချိန်နှင့်အမျှပြောင်းလဲမှုရှိနိုင်ပါသည်။</marquee> 
-    <x-card-wrapper>
+  @if(session('success'))
+  <div class="alert alert-success text-center">{{session('success')}}</div>
+  @endif
+  <x-card-wrapper>
     <table class="table">
         <thead class="table-warning">
           <tr>
@@ -22,7 +25,7 @@
                 <input type="hidden" name="product_type" value="fbreeding">
                   <input type="hidden" name="product_name" value="{{ $fbreeding->name }}">
                   <input type="hidden" name="product_id" value="{{ $fbreeding->id }}">
-                  <input type="hidden" name="product_price" value="{{ $fbreeing->price }}">
+                  <input type="hidden" name="product_price" value="{{ $fbreeding->price }}">
                 <div class="row">
                   <div class="col-12 col-md-4 mb-2 mb-md-0">
                     <input type="number" class="form-control" name="quantity" value="1" min="1" max="5">

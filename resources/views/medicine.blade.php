@@ -1,4 +1,7 @@
 <x-layout>
+  @if(session('success'))
+  <div class="alert alert-success text-center">{{session('success')}}</div>
+  @endif
    <div class="containter">
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-6">

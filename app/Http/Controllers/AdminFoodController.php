@@ -15,16 +15,18 @@ class AdminFoodController extends Controller
 {
     public function chicken_create()
     {
-        return view('admin.foods.chicken_create',[
+        return view('admin.foods.chicken_create', [
             'companies' => Company::all()
         ]);
-            
     }
     public function chicken_show()
     {
-        return view('admin.foods.chicken_show',[
-            'chickenfoods' => Chickenfood::latest()->paginate(6)
-        ]);
+        $chickenfoods = Chickenfood::latest()->paginate(6);
+        // Check for low stock products
+        $lowStockProducts = $chickenfoods->filter(function ($product) {
+            return $product->quantity < 3;
+        });
+        return view('admin.foods.chicken_show', compact('chickenfoods', 'lowStockProducts'));
     }
     public function chicken_store(Request $request)
     {
@@ -36,7 +38,6 @@ class AdminFoodController extends Controller
             "quantity" =>  ["required"],
             "feeding_program" =>  ["required"]
         ]);
-        // $formData['user_id'] = auth()->id();
         $formData['image'] = $request->file('image')->store('thumbnails');
         Chickenfood::create($formData);
 
@@ -44,14 +45,14 @@ class AdminFoodController extends Controller
     }
     public function chicken_edit(Chickenfood $id)
     {
-        return view('admin.foods.chicken_edit',[
+        return view('admin.foods.chicken_edit', [
             'chickenfood' => $id,
             'companies' => Company::all()
         ]);
     }
-    public function chicken_update(Request $request,$id)
+    public function chicken_update(Request $request, $id)
     {
-        
+
         $chickenfood = Chickenfood::find($id);
         $formData = $request->validate([
             "code" => ["required"],
@@ -60,7 +61,7 @@ class AdminFoodController extends Controller
             "price" =>  ["required"],
             "quantity" =>  ["required"],
             "feeding_program" =>  ["required"]
-        ]);        
+        ]);
         $formData['image'] = $request->file('image') ?
             $request->file('image')->store('thumbnails') : $chickenfood->image;
         $chickenfood->update($formData);
@@ -75,16 +76,18 @@ class AdminFoodController extends Controller
     // pig
     public function pig_create()
     {
-        return view('admin.foods.pig_create',[
+        return view('admin.foods.pig_create', [
             'companies' => Company::all()
         ]);
-            
     }
     public function pig_show()
     {
-        return view('admin.foods.pig_show',[
-            'pigfoods' => Pigfood::latest()->paginate(6)
-        ]);
+        $pigfoods = Pigfood::latest()->paginate(6);
+        // Check for low stock products
+        $lowStockProducts = $pigfoods->filter(function ($product) {
+            return $product->quantity < 3;
+        });
+        return view('admin.foods.pig_show', compact('pigfoods', 'lowStockProducts'));;
     }
     public function pig_store(Request $request)
     {
@@ -96,7 +99,6 @@ class AdminFoodController extends Controller
             "quantity" =>  ["required"],
             "feeding_program" =>  ["required"]
         ]);
-        // $formData['user_id'] = auth()->id();
         $formData['image'] = $request->file('image')->store('thumbnails');
         Pigfood::create($formData);
 
@@ -104,14 +106,14 @@ class AdminFoodController extends Controller
     }
     public function pig_edit(Pigfood $id)
     {
-        return view('admin.foods.pig_edit',[
+        return view('admin.foods.pig_edit', [
             'pigfood' => $id,
             'companies' => Company::all()
         ]);
     }
-    public function pig_update(Request $request,$id)
+    public function pig_update(Request $request, $id)
     {
-        
+
         $pigfood = Pigfood::find($id);
         $formData = $request->validate([
             "code" => ["required"],
@@ -120,7 +122,7 @@ class AdminFoodController extends Controller
             "price" =>  ["required"],
             "quantity" =>  ["required"],
             "feeding_program" =>  ["required"]
-        ]);        
+        ]);
         $formData['image'] = $request->file('image') ?
             $request->file('image')->store('thumbnails') : $pigfood->image;
         $pigfood->update($formData);
@@ -135,15 +137,18 @@ class AdminFoodController extends Controller
     //duck
     public function duck_create()
     {
-        return view('admin.foods.duck_create',[
+        return view('admin.foods.duck_create', [
             'companies' => Company::all()
-        ]);  
+        ]);
     }
     public function duck_show()
     {
-        return view('admin.foods.duck_show',[
-            'duckfoods' => Duckfood::latest()->paginate(6)
-        ]);
+        $duckfoods = Duckfood::latest()->paginate(6);
+        // Check for low stock products
+        $lowStockProducts = $duckfoods->filter(function ($product) {
+            return $product->quantity < 3;
+        });
+        return view('admin.foods.duck_show', compact('duckfoods', 'lowStockProducts'));;
     }
     public function duck_store(Request $request)
     {
@@ -162,14 +167,13 @@ class AdminFoodController extends Controller
     }
     public function duck_edit(Duckfood $id)
     {
-        return view('admin.foods.duck_edit',[
+        return view('admin.foods.duck_edit', [
             'duckfood' => $id,
             'companies' => Company::all()
         ]);
     }
-    public function duck_update(Request $request,$id)
+    public function duck_update(Request $request, $id)
     {
-        
         $duckfood = Duckfood::find($id);
         $formData = $request->validate([
             "code" => ["required"],
@@ -178,7 +182,7 @@ class AdminFoodController extends Controller
             "price" =>  ["required"],
             "quantity" =>  ["required"],
             "feeding_program" =>  ["required"]
-        ]);        
+        ]);
         $formData['image'] = $request->file('image') ?
             $request->file('image')->store('thumbnails') : $duckfood->image;
         $duckfood->update($formData);
@@ -193,16 +197,18 @@ class AdminFoodController extends Controller
     //cow
     public function cow_create()
     {
-        return view('admin.foods.cow_create',[
+        return view('admin.foods.cow_create', [
             'companies' => Company::all()
         ]);
-            
     }
     public function cow_show()
     {
-        return view('admin.foods.cow_show',[
-            'cowfoods' => Cowfood::latest()->paginate(6)
-        ]);
+        $cowfoods = Cowfood::latest()->paginate(6);
+        // Check for low stock products
+        $lowStockProducts = $cowfoods->filter(function ($product) {
+            return $product->quantity < 3;
+        });
+        return view('admin.foods.cow_show', compact('cowfoods', 'lowStockProducts'));;
     }
     public function cow_store(Request $request)
     {
@@ -214,7 +220,6 @@ class AdminFoodController extends Controller
             "quantity" =>  ["required"],
             "feeding_program" =>  ["required"]
         ]);
-        // $formData['user_id'] = auth()->id();
         $formData['image'] = $request->file('image')->store('thumbnails');
         Cowfood::create($formData);
 
@@ -222,14 +227,14 @@ class AdminFoodController extends Controller
     }
     public function cow_edit(Cowfood $id)
     {
-        return view('admin.foods.cow_edit',[
+        return view('admin.foods.cow_edit', [
             'cowfood' => $id,
             'companies' => Company::all()
         ]);
     }
-    public function cow_update(Request $request,$id)
+    public function cow_update(Request $request, $id)
     {
-        
+
         $cowfood = Cowfood::find($id);
         $formData = $request->validate([
             "code" => ["required"],
@@ -238,7 +243,7 @@ class AdminFoodController extends Controller
             "price" =>  ["required"],
             "quantity" =>  ["required"],
             "feeding_program" =>  ["required"]
-        ]);        
+        ]);
         $formData['image'] = $request->file('image') ?
             $request->file('image')->store('thumbnails') : $cowfood->image;
         $cowfood->update($formData);
@@ -252,16 +257,18 @@ class AdminFoodController extends Controller
     }
     public function fish_create()
     {
-        return view('admin.foods.fish_create',[
+        return view('admin.foods.fish_create', [
             'companies' => Company::all()
         ]);
-            
     }
     public function fish_show()
     {
-        return view('admin.foods.fish_show',[
-            'fishfoods' => Fishfood::latest()->paginate(6)
-        ]);
+        $fishfoods = Fishfood::latest()->paginate(6);
+        // Check for low stock products
+        $lowStockProducts = $fishfoods->filter(function ($product) {
+            return $product->quantity < 3;
+        });
+        return view('admin.foods.fish_show', compact('fishfoods', 'lowStockProducts'));;
     }
     public function fish_store(Request $request)
     {
@@ -273,7 +280,6 @@ class AdminFoodController extends Controller
             "quantity" =>  ["required"],
             "feeding_program" =>  ["required"]
         ]);
-        // $formData['user_id'] = auth()->id();
         $formData['image'] = $request->file('image')->store('thumbnails');
         Fishfood::create($formData);
 
@@ -281,14 +287,14 @@ class AdminFoodController extends Controller
     }
     public function fish_edit(Fishfood $id)
     {
-        return view('admin.foods.fish_edit',[
+        return view('admin.foods.fish_edit', [
             'fishfood' => $id,
             'companies' => Company::all()
         ]);
     }
-    public function fish_update(Request $request,$id)
+    public function fish_update(Request $request, $id)
     {
-        
+
         $fishfood = Fishfood::find($id);
         $formData = $request->validate([
             "code" => ["required"],
@@ -297,7 +303,7 @@ class AdminFoodController extends Controller
             "price" =>  ["required"],
             "quantity" =>  ["required"],
             "feeding_program" =>  ["required"]
-        ]);        
+        ]);
         $formData['image'] = $request->file('image') ?
             $request->file('image')->store('thumbnails') : $fishfood->image;
         $fishfood->update($formData);

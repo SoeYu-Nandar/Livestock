@@ -13,15 +13,21 @@ class AdminBreedingController extends Controller
    {
         return view('admin.breedings.chicken_create');
    }
+
    public function chicken_show()
    {
-        return view('admin.breedings.chicken_show',[
-          'chickenbreedings' => Chickenbreeding::latest()->paginate(6)
-      ]);
+    $chickenbreedings = Chickenbreeding::latest()->paginate(6);
+        // Check for low stock products
+    $lowStockProducts = $chickenbreedings->filter(function ($product) {
+        return $product->quantity < 3;
+    });
+    return view('admin.breedings.chicken_show',compact('chickenbreedings', 'lowStockProducts'));
    }
+
    public function chicken_store(Request $request)
    {
      $formData = $request->validate([
+          "name" => ["required"],
           "description" => ["required"],
           "price" =>  ["required"],
           "quantity" =>  ["required"]
@@ -31,16 +37,20 @@ class AdminBreedingController extends Controller
 
       return redirect('/admin/breedings/chicken_breeding/show');
    }
+
    public function chicken_edit(Chickenbreeding $id)
     {
         return view('admin.breedings.chicken_edit',[
             'chickenbreeding' => $id
         ]);
     }
+
     public function chicken_update(Request $request,$id)
     {
+        
      $chickenbreeding = Chickenbreeding::find($id);
      $formData = $request->validate([
+          "name" => ["required"],
           "description" => ["required"],
           "price" =>  ["required"],
           "quantity" =>  ["required"]
@@ -50,26 +60,33 @@ class AdminBreedingController extends Controller
         $chickenbreeding->update($formData);
         return redirect('/admin/breedings/chicken_breeding/show');
     }
+
     public function chicken_destroy($id)
     {
         $chickenbreeding = Chickenbreeding::find($id);
         $chickenbreeding->delete();
         return redirect('/admin/breedings/chicken_breeding/show')->with('danger', 'The selected data is deleted');
     }
-
+    //pig 
    public function pig_create()
    {
         return view('admin.breedings.pig_create');
    }
+
    public function pig_show()
    {
-        return view('admin.breedings.pig_show',[
-          'pigbreedings' => Pigbreeding::latest()->paginate(6)
-      ]);
+        $pigbreedings = Pigbreeding::latest()->paginate(6);
+            // Check for low stock products
+        $lowStockProducts = $pigbreedings->filter(function ($product) {
+            return $product->quantity < 3;
+        });
+        return view('admin.breedings.pig_show',compact('pigbreedings', 'lowStockProducts'));
    }
+
    public function pig_store(Request $request)
    {
      $formData = $request->validate([
+          "name" => ["required"],
           "description" => ["required"],
           "price" =>  ["required"],
           "quantity" =>  ["required"]
@@ -79,16 +96,19 @@ class AdminBreedingController extends Controller
 
       return redirect('/admin/breedings/pig_breeding/show');
    }
+
    public function pig_edit(Pigbreeding $id)
     {
         return view('admin.breedings.pig_edit',[
             'pigbreeding' => $id
         ]);
     }
+
     public function pig_update(Request $request,$id)
     {
      $pigbreeding = Pigbreeding::find($id);
      $formData = $request->validate([
+          "name" => ["required"],
           "description" => ["required"],
           "price" =>  ["required"],
           "quantity" =>  ["required"]
@@ -98,25 +118,33 @@ class AdminBreedingController extends Controller
         $pigbreeding->update($formData);
         return redirect('/admin/breedings/pig_breeding/show');
     }
+
     public function pig_destroy($id)
     {
         $pigbreeding = Pigbreeding::find($id);
         $pigbreeding->delete();
         return redirect('/admin/breedings/pig_breeding/show')->with('danger', 'The selected data is deleted');
     }
+    //fish
    public function fish_create()
    {
         return view('admin.breedings.fish_create');
    }
+
    public function fish_show()
    {
-        return view('admin.breedings.fish_show',[
-          'fishbreedings' => Fishbreeding::latest()->paginate(6)
-      ]);
+        $fishbreedings = Fishbreeding::latest()->paginate(6);
+            // Check for low stock products
+        $lowStockProducts = $fishbreedings->filter(function ($product) {
+            return $product->quantity < 3;
+    });
+    return view('admin.breedings.fish_show',compact('fishbreedings', 'lowStockProducts'));
    }
+
    public function fish_store(Request $request)
    {
      $formData = $request->validate([
+            "name" => ["required"],
           "description" => ["required"],
           "price" =>  ["required"],
           "quantity" =>  ["required"]
@@ -126,16 +154,19 @@ class AdminBreedingController extends Controller
 
       return redirect('/admin/breedings/fish_breeding/show');
    }
+
    public function fish_edit(Fishbreeding $id)
     {
         return view('admin.breedings.fish_edit',[
             'fishbreeding' => $id
         ]);
     }
+
     public function fish_update(Request $request,$id)
     {
      $fishbreeding = Fishbreeding::find($id);
      $formData = $request->validate([
+            "name" => ["required"],
           "description" => ["required"],
           "price" =>  ["required"],
           "quantity" =>  ["required"]
@@ -145,6 +176,7 @@ class AdminBreedingController extends Controller
         $fishbreeding->update($formData);
         return redirect('/admin/breedings/fish_breeding/show');
     }
+    
     public function fish_destroy($id)
     {
         $fishbreeding = Fishbreeding::find($id);

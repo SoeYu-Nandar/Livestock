@@ -50,7 +50,11 @@ class CartController extends Controller
         if (!$product) {
             return redirect()->back()->withErrors(['error' => 'Product not found.']);
         }
-    
+        
+           // Check if there's enough stock
+    if ($product->quantity < $validatedData['quantity']) {
+        return redirect()->back()->with('error', 'လက်ကျန်ကုန်ဆုံးသွားပါပြီ');
+    }
         // Add the product to the cart
         $cart = new Cart;
         $cart->user_id = $user_id;
@@ -61,6 +65,8 @@ class CartController extends Controller
         $cart->quantity = $validatedData['quantity'];
     
         $cart->save();
+        // Decrease the quantity in stock
+    $product->decrement('quantity', $validatedData['quantity']);
     
         return redirect()->back()->with('success', 'ဈေးဝယ်ခြင်းထဲသို့အောင်မြင်စွာထည့်ပြီးပါပြီ');
     }
@@ -97,6 +103,20 @@ class CartController extends Controller
     public function remove_cart($id)
     {
         $cart = Cart::find($id);
+        // Get the product type and product ID
+        $productType = $cart->product_type;
+        $productId = $cart->product_id;
+
+        // Get the correct product model
+        $productModel = $this->getProductModel($productType);
+
+        // Find the product
+        $product = $productModel::find($productId);
+
+        if ($product) {
+        // Restore the quantity in stock
+        $product->increment('quantity', $cart->quantity);
+        }
         $cart->delete();
         return redirect('/show_cart')->with('warning','မှာယူထားသောပစ္စည်းအားပယ်ဖျက်ပါသည်');
     }

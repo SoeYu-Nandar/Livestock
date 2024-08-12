@@ -1,6 +1,12 @@
 <x-layout>
      <marquee behavior="" direction="" class="my-2" style="color:red;"><img src="/img/chickenicon.gif" style="width:45px;height:45px;"> ကြက်သားပေါက်ဈေးနှုန်းများသည်အချိန်နှင့်အမျှပြောင်းလဲမှုရှိနိုင်ပါသည်။</marquee> 
-        <x-card-wrapper>
+     @if(session('success'))
+     <div class="alert alert-success text-center">{{session('success')}}</div>
+     @endif
+     @if(session('error'))
+     <div class="alert alert-danger text-center">{{session('error')}}</div>
+     @endif
+     <x-card-wrapper>
         <table class="table text-center">
             <thead class="table-warning">
               <tr>

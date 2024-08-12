@@ -3,6 +3,7 @@
     <x-card-wrapper>
         <form enctype="multipart/form-data" action="/admin/breedings/chicken_breeding/store" method="POST">
             @csrf
+            <x-form.input name="name" />
             <x-form.input name="description" />
             <x-form.input name="image" type="file"/>
             <x-form.input name="price" />

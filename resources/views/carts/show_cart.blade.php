@@ -14,12 +14,13 @@
               </tr>
             </thead>
             <tbody>
+              @php $total = 0; @endphp
               @foreach($carts as $cart)
               <tr>
                 <td>{{$cart->product_name}}</td>
-                <td>{{$cart->product_price}}</td>
+                <td>{{$cart->product_price}} kyats</td>
                 <td>{{$cart->quantity}}</td>
-                                
+                               
                 <td>
                   <form action="/remove_cart/{{$cart->id}}/delete" method="POST">
                     @csrf
@@ -34,8 +35,12 @@
                   </form>      
                 </td>
               </tr>
-           @endforeach   
+              @php $total += $cart->product_price * $cart->quantity; @endphp
+           @endforeach  
             </tbody>
           </table>
+          <card class="footer">
+            <h6 class="text-danger">Total Cost : {{$total}} Kyats</h6>
+          </card>
     </x-card-wrapper>
 </x-layout>
