@@ -22,7 +22,7 @@
                     <input type="hidden" name="product_type" value="cbreeding">
                   <input type="hidden" name="product_name" value="{{ $cbreeding->name }}">
                   <input type="hidden" name="product_id" value="{{ $cbreeding->id }}">
-                  <input type="hidden" name="product_price" value="{{ $cbreeing->price }}">
+                  <input type="hidden" name="product_price" value="{{ $cbreeding->price }}">
                     <div class="row">
                       <div class="col-12 col-md-4 mb-2 mb-md-0">
                         <input type="number" class="form-control" name="quantity" value="1" min="1" max="5">
