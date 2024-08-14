@@ -62,6 +62,8 @@ Route::get('/login',[AuthController::class,'login']);
 Route::post('/login',[AuthController::class,'post_login']);
 
 Route::get('/admin/dashboard', [AdminBlogController::class, 'index']);
+
+
 Route::get('/admin/blogs/create', [AdminBlogController::class, 'create']);
 Route::post('/admin/blogs/store', [AdminBlogController::class, 'store']);
 Route::get('/admin/blogs/show', [AdminBlogController::class, 'show']);

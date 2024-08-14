@@ -58,7 +58,7 @@
                           <div class="tags mb-2">
                             <a href="/pig_foods/?company={{$pigfood->company->slug}}"><span class="badge text-bg-dark">{{$pigfood->company->name}}</span></a>
                       </div>
-                          <p class="card-text text-muted">{{$pigfood->price}}</p>
+                          <p class="card-text text-muted">{{$pigfood->price}} ကျပ်</p>
                           <a href="/pig_foods/{{$pigfood->id}}" class="btn btn-primary rounded-pill">ပိုမိုလေ့လာမည်</a>
                         </div>
                       </div>

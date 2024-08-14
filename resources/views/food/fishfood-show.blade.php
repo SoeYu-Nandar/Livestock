@@ -10,9 +10,9 @@
             <div class="card-body">
               <div class="card-title fw-bold">{{$fishfood->name}}</div>
               <p class="card-text">ကုဒ်နံပါတ် - {{$fishfood->code}}</p>
-                <p class="card-text">ကျွေးရမည့်ကာလ - {{$fishfood->feeding_program}}</p>
-                <p class="card-text">ဈေးနှုန်း - {{$fishfood->price}}</p>
-                <p class="card-text">ကုမ္ပဏီအမည် - {{$fishfood->company->name}}</p>
+                <p class="card-text"> {{$fishfood->feeding_program}}</p>
+                <p class="card-text">ဈေးနှုန်း - {{$fishfood->price}} ကျပ်</p>
+                <p class="card-text">ကုမ္ပဏီအမည် - {{$fishfood->company->name}} Co.Ltd</p>
                 <form action="{{ url('add_cart') }}" method="POST">
                   @csrf
                   <input type="hidden" name="product_type" value="fishfood">

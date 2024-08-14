@@ -58,6 +58,6 @@
                 @endforeach
               </tbody> 
         </table>
-        {{-- {{$blogchicken->links()}} --}}
+        {{$cowfoods->links()}}
     </x-card-wrapper>
 </x-admin-layout>

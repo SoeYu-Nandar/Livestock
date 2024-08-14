@@ -63,7 +63,7 @@
               <a href="/chicken_foods/?company={{$chickenfood->company->slug}}"><span class="badge text-bg-dark">
                   {{$chickenfood->company->name}}</span></a>
             </div>
-            <p class="card-text text-muted">{{$chickenfood->price}}</p>
+            <p class="card-text text-muted">{{$chickenfood->price}} ကျပ်</p>
             <a href="/chicken_foods/{{$chickenfood->id}}" class="btn btn-primary rounded-pill">ပိုမိုလေ့လာမည်</a>
           </div>
         </div>

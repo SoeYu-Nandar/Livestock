@@ -60,7 +60,7 @@
                           <div class="tags mb-2">
                             <a href="/duck_foods/?company={{$duckfood->company->slug}}"><span class="badge text-bg-dark">{{$duckfood->company->name}}</span></a>
                       </div>
-                          <p class="card-text text-muted">{{$duckfood->price}}</p>
+                          <p class="card-text text-muted">{{$duckfood->price}} ကျပ်</p>
                           <a href="/duck_foods/{{$duckfood->id}}" class="btn btn-primary rounded-pill">ပိုမိုလေ့လာမည်</a>
                         </div>
                       </div>

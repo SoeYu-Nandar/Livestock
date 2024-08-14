@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use id;
+use App\Models\Faq;
 use App\Models\Type;
 use App\Models\User;
 use App\Models\Category;
@@ -17,7 +18,11 @@ class AdminBlogController extends Controller
     public function index()
     {
         return view('admin.blogs.index',[
-            'users' => User::latest()->paginate(6)
+            'blogs' => Blogchicken::count(),
+            'user' => User::where('is_admin','0')->count(),
+            'admin' => User::where('is_admin','1')->count(),
+            'faq' => Faq::count(),
+            'users' => User::where('is_admin','0')->latest()->paginate(6)
         ]);
     }
     public function create()
@@ -90,4 +95,5 @@ class AdminBlogController extends Controller
     {
         return view('admin.faq-reply');
     }
+
 }

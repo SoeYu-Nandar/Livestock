@@ -11,8 +11,8 @@
             <div class="card-title fw-bold">{{$pigfood->name}}</div>
             <p class="card-text">ကုဒ်နံပါတ် - {{$pigfood->code}}</p>
             <p class="card-text">ကျွေးရမည့်ကာလ - {{$pigfood->feeding_program}}</p>
-            <p class="card-text">ဈေးနှုန်း - {{$pigfood->price}}</p>
-            <p class="card-text">ကုမ္ပဏီအမည် - {{$pigfood->company->name}}</p>
+            <p class="card-text">ဈေးနှုန်း - {{$pigfood->price}} ကျပ်</p>
+            <p class="card-text">ကုမ္ပဏီအမည် - {{$pigfood->company->name}} Co.Ltd</p>
             <form action="{{ url('add_cart') }}" method="POST">
               @csrf
               <input type="hidden" name="product_type" value="pigfood">

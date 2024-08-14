@@ -24,6 +24,7 @@
                     <th scope="col">Price</th>
                     <th scope="col">Quantity</th>
                     <th scope="col" colspan="3">Action</th>
+                 
                 </tr>
             </thead>
             
@@ -55,8 +56,8 @@
                     </td>
                 </tr>
                 @endforeach
-            </tbody>    
+            </tbody>  
         </table>
-        {{-- {{$blogchicken->links()}} --}}
+        {{$fishfoods->links()}}
     </x-card-wrapper>
 </x-admin-layout>
