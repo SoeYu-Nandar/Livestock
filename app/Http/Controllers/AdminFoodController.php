@@ -62,8 +62,8 @@ class AdminFoodController extends Controller
             "quantity" =>  ["required"],
             "feeding_program" =>  ["required"]
         ]);
-        $formData['image'] = $request->file('image') ?
-            $request->file('image')->store('thumbnails') : $chickenfood->image;
+        $formData['image'] = $request->file('thumbnail') ?
+            $request->file('thumbnail')->store('thumbnails') : $chickenfood->image;
         $chickenfood->update($formData);
         return redirect('/admin/foods/chicken_food/show');
     }
@@ -123,8 +123,8 @@ class AdminFoodController extends Controller
             "quantity" =>  ["required"],
             "feeding_program" =>  ["required"]
         ]);
-        $formData['image'] = $request->file('image') ?
-            $request->file('image')->store('thumbnails') : $pigfood->image;
+        $formData['image'] = $request->file('thumbnail') ?
+            $request->file('thumbnail')->store('thumbnails') : $pigfood->image;
         $pigfood->update($formData);
         return redirect('/admin/foods/pig_food/show');
     }
@@ -183,8 +183,8 @@ class AdminFoodController extends Controller
             "quantity" =>  ["required"],
             "feeding_program" =>  ["required"]
         ]);
-        $formData['image'] = $request->file('image') ?
-            $request->file('image')->store('thumbnails') : $duckfood->image;
+        $formData['image'] = $request->file('thumbnail') ?
+            $request->file('thumbnail')->store('thumbnails') : $duckfood->image;
         $duckfood->update($formData);
         return redirect('/admin/foods/duck_food/show');
     }
@@ -244,8 +244,8 @@ class AdminFoodController extends Controller
             "quantity" =>  ["required"],
             "feeding_program" =>  ["required"]
         ]);
-        $formData['image'] = $request->file('image') ?
-            $request->file('image')->store('thumbnails') : $cowfood->image;
+        $formData['image'] = $request->file('thumbnail') ?
+            $request->file('thumbnail')->store('thumbnails') : $cowfood->image;
         $cowfood->update($formData);
         return redirect('/admin/foods/cow_food/show');
     }
@@ -304,8 +304,8 @@ class AdminFoodController extends Controller
             "quantity" =>  ["required"],
             "feeding_program" =>  ["required"]
         ]);
-        $formData['image'] = $request->file('image') ?
-            $request->file('image')->store('thumbnails') : $fishfood->image;
+        $formData['image'] = $request->file('thumbnail') ?
+            $request->file('thumbnail')->store('thumbnails') : $fishfood->image;
         $fishfood->update($formData);
         return redirect('/admin/foods/fish_food/show');
     }

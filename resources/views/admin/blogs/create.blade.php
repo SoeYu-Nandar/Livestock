@@ -6,7 +6,9 @@
             <x-form.input name="title" />
             <x-form.input name="slug" />
             <x-form.input name="intro" />
-            <x-form.textarea name="body" />
+            <x-head.tinymce-config/>
+            {{-- <x-form.textarea name="body"/> --}}
+            <x-forms.tinymce-editor/>
             <x-form.input name="thumbnail" type="file"/>
             
             <x-form.input-wrapper>
