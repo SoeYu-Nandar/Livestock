@@ -37,7 +37,7 @@
             <td>{{$medicine->animals}}</td>
             <td>{{$medicine->methods}}</td>
             <td>{{$medicine->diseases}}</td>
-            <td>{{$medicine->price}}</td>
+            <td>{{$medicine->price}} ကျပ်</td>
             <td>
               <form action="{{ url('add_cart') }}" method="POST">
                 @csrf
@@ -46,10 +46,10 @@
                   <input type="hidden" name="product_id" value="{{ $medicine->id }}">
                   <input type="hidden" name="product_price" value="{{ $medicine->price }}">
                 <div class="row">
-                  <div class="col-12 col-md-6 mb-2 mb-md-0">
+                  <div class="col-12 col-md-8 mb-2 mb-md-2">
                     <input type="number" class="form-control" name="quantity" value="1" min="1" max="5">
                   </div>
-                  <div class="col-12 col-md-6">
+                  <div class="col-12 col-md-8">
                     <button class="btn btn-info w-100 rounded-pill" type="submit" id="button-addon2">
                       <i class="bi bi-cart4"></i>
                     </button>
@@ -61,6 +61,7 @@
           @endforeach
         </tbody>
       </table>
+      {{$medicines->links()}}
     </x-card-wrapper>
 
 </x-layout>

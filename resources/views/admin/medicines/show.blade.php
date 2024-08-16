@@ -33,11 +33,11 @@
                 @foreach($medicines as $medicine)
                 <tr>
                     <td><a href="/medicines" target="_blank">{{$medicine->medicine_name}}</a></td>
-                    <td>{{$medicine->medicine_name}}</td>
                     <td>{{$medicine->company_name}}</td>
                     <td>{{$medicine->animals}}</td>
                     <td>{{$medicine->methods}}</td>
                     <td>{{$medicine->diseases}}</td>
+                    <td>{{$medicine->price}}</td>
                     <td>{{$medicine->quantity}}</td>
 
                     <td><a href="/admin/medicines/{{$medicine->id}}/edit" class="btn btn-warning">

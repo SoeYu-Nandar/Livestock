@@ -136,7 +136,7 @@ class AdminBreedingController extends Controller
         $fishbreedings = Fishbreeding::latest()->paginate(6);
             // Check for low stock products
         $lowStockProducts = $fishbreedings->filter(function ($product) {
-            return $product->quantity < 3;
+            return $product->quantity < 300;
     });
     return view('admin.breedings.fish_show',compact('fishbreedings', 'lowStockProducts'));
    }

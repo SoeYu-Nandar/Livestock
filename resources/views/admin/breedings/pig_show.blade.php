@@ -28,7 +28,7 @@
             <tbody>
                 @foreach($pigbreedings as $pigbreeding)
                 <tr>
-                    <td><a href="" target="_blank">{{$pigbreeding->description}}</a></td>
+                    <td><a href="/pig_breedings" target="_blank">{{$pigbreeding->description}}</a></td>
                     <td>{{$pigbreeding->quantity}}</td>
                     <td>{{$pigbreeding->price}}</td>     
                     <td><a href="/admin/breedings/pig_breeding/{{$pigbreeding->id}}/edit" class="btn btn-warning">

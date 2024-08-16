@@ -28,7 +28,7 @@
                   <input type="hidden" name="product_price" value="{{ $fbreeding->price }}">
                 <div class="row">
                   <div class="col-12 col-md-4 mb-2 mb-md-0">
-                    <input type="number" class="form-control" name="quantity" value="1" min="1" max="5">
+                    <input type="number" class="form-control" name="quantity" value="500" min="500" max="5000">
                   </div>
                   <div class="col-12 col-md-4">
                     <button class="btn btn-info w-100 rounded-pill" type="submit" id="button-addon2">
