@@ -8,7 +8,7 @@
             <x-form.input name="intro" />
             <x-head.tinymce-config/>
             {{-- <x-form.textarea name="body"/> --}}
-            <x-forms.tinymce-editor/>
+            <x-forms.tinymce-editor name="body"/>
             <x-form.input name="thumbnail" type="file"/>
             
             <x-form.input-wrapper>
