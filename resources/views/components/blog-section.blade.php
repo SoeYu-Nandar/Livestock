@@ -21,13 +21,14 @@
         <div class="row text-center">
 
                 @forelse ($blogchickens as $blogchicken)
-                <div class="col-md-3 my-5">
+                <div class="col-md-4 my-5">
                         <x-blog-card :blogchicken="$blogchicken" />
                 </div>
                 @empty
                 <p class="text-center">No Blogs Found.</p>
                 @endforelse
 
-
+                {{$blogchickens->links()}}
         </div>
+        
 </section>

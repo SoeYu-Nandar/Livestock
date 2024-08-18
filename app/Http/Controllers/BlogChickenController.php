@@ -13,7 +13,7 @@ class BlogChickenController extends Controller
         return view('blogs.chicken-section',[
             'blogchickens' => Blogchicken::latest()
                 ->filter(request(['category', 'type']))
-                ->paginate(6)
+                ->paginate(9)
                 ->withQueryString()               
         ]);
 
