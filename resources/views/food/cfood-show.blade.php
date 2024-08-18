@@ -7,7 +7,7 @@
         <div class="card" style="border:none;">
         <div class="row">
           <div class="col-md-4">
-            <img src="/storage/{{$chickenfood->image}}" alt="" class="img-fluid rounded" style="height:300px;">
+            <img src="/storage/{{$chickenfood->image}}" alt="" class="img-fluid rounded">
           </div>
           <div class="col-md-8">
             <div class="card-body">
