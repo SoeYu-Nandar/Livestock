@@ -3,14 +3,15 @@
     <li class="nav-item my-2">
       <a class="nav-link text-light" href="/">ပင်မစာမျက်နှာ</a>
     </li>
-      <li class="nav-item my-2">
+    <li class="nav-item my-2">
       <a class="nav-link text-light" href="/blogs">
         မွေးမြူရေးဗဟုသုတ
       </a>
     </li>
-      
+
     <div class="dropdown">
-      <a class="btn text-light dropdown-toggle border-0 my-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <a class="btn text-light dropdown-toggle border-0 my-2" href="#" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
         တိရစ္ဆာန်အစာများ
       </a>
 
@@ -27,10 +28,11 @@
         ဆေးဝါးများ
       </a>
     </li>
-   
+
 
     <div class="dropdown">
-      <a class="btn text-light dropdown-toggle border-0 my-2" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <a class="btn text-light dropdown-toggle border-0 my-2" href="" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
         သားပေါက်များ
       </a>
 
@@ -41,7 +43,7 @@
       </ul>
     </div>
     <li class="nav-item my-2">
-      <a class="nav-link text-light" href="/faq">FAQ</a>
+      <a class="nav-link text-light" href="/faq">အမေးအဖြေကဏ္ဍ</a>
     </li>
     @auth
     <li class="nav-item my-2 mx-3">
@@ -53,21 +55,24 @@
     @endauth
     @auth
     <div class="dropdown">
-      <a class="btn text-light dropdown-toggle border-0 my-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-       
-    <img src="{{auth()->user()->avatar}}" width="30" height="30" class="rounded-circle mt-1">
-    
-      {{auth()->user()->name}}
-    
+      <a class="btn text-light dropdown-toggle border-0 my-2" href="#" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+
+        <img src="{{auth()->user()->avatar}}" width="30" height="30" class="rounded-circle mt-1">
+
+        {{auth()->user()->name}}
+
       </a>
 
       <ul class="dropdown-menu">
-        <li><form action="/logout" method="POST">@csrf
-          
-            <button type="submit" class="btn m-2" style="border:none;">ထွက်ရန်</button>
-          
-        </form> </li>
-        
+        <li>
+          <form action="/logout" method="POST">@csrf
+
+            <button type="submit" class="btn m-2" style="border:none;">ထွက်မည်</button>
+
+          </form>
+        </li>
+
       </ul>
     </div>
     @else

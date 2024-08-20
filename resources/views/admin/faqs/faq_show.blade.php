@@ -24,7 +24,7 @@
                         <span class="d-none d-lg-inline">
                             Reply
                             </span>
-                    </a></td>
+                    </a></td>                  
                 </tr>
                 @endforeach
             </tbody> 
