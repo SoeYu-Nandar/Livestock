@@ -32,7 +32,7 @@
             <tbody>
                 @foreach($medicines as $medicine)
                 <tr>
-                    <td><a href="/medicines" target="_blank">{{$medicine->medicine_name}}</a></td>
+                    <td><a href="/medicines" target="_blank">{{$medicine->name}}</a></td>
                     <td>{{$medicine->company_name}}</td>
                     <td>{{$medicine->animals}}</td>
                     <td>{{$medicine->methods}}</td>

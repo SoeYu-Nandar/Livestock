@@ -24,7 +24,8 @@ class CartController extends Controller
         }
         // Validate the request
         $validatedData = $request->validate([
-            'product_type' => 'required|string', // The table name or type
+            'product_type' => 'required|string',// The table name or type
+            'product_name' => 'required|string', 
             'product_id'   => 'required|integer', // The product ID in that table
             'quantity'     => 'required|integer', // The quantity to add to cart
         ]);

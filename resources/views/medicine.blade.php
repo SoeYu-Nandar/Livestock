@@ -1,4 +1,6 @@
 <x-layout>
+  
+
   @if(session('success'))
   <div class="alert alert-success text-center">{{session('success')}}</div>
   @endif
@@ -30,8 +32,9 @@
         </thead>
         <tbody>
           @foreach($medicines as $medicine)
+        
           <tr>
-            <td>{{$medicine->medicine_name}}</td>
+            <td>{{$medicine->name}}</td>
             <td><img src="/storage/{{$medicine->image}}" class="card-img-top" alt="..." style="width:100px;height:100px;"></td>
             <td>{{$medicine->company_name}}</td>
             <td>{{$medicine->animals}}</td>
@@ -39,10 +42,11 @@
             <td>{{$medicine->diseases}}</td>
             <td>{{$medicine->price}} ကျပ်</td>
             <td>
+              
               <form action="{{ url('add_cart') }}" method="POST">
                 @csrf
                 <input type="hidden" name="product_type" value="medicine">
-                  <input type="hidden" name="product_name" value="{{ $medicine->name }}">
+                  <input type="hidden" name="product_name" value="{{$medicine->name}}">
                   <input type="hidden" name="product_id" value="{{ $medicine->id }}">
                   <input type="hidden" name="product_price" value="{{ $medicine->price }}">
                 <div class="row">
