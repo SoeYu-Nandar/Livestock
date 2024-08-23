@@ -101,6 +101,27 @@ class CartController extends Controller
         return redirect('/login');
     }
   }  
+  public function submit_cart()
+  {
+    $id = Auth::user()->id;
+    $carts = Cart::where('user_id','=',$id)->get();
+    $customer = Auth::user(); // Assuming the customer is the authenticated user
+
+    // Render the view with the customer and cart items
+    $view = view('carts.customer_card', compact('customer', 'carts'))->render();
+
+    // Now, delete the cart items
+    Cart::where('user_id', $id)->delete();
+
+    // Return the rendered view
+    return $view;
+    
+  }
+  public function pay()
+  {
+    return redirect('/')->with('success', 'ငွေပေးချေမှုအောင်မြင်ပါသည်');
+  }
+  
     public function remove_cart($id)
     {
         $cart = Cart::find($id);

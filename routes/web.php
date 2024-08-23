@@ -52,6 +52,8 @@ Route::get('/fish_breedings',[BreedingController::class,'fish_index']);
 
 Route::post('/add_cart',[CartController::class,'add_cart']);
 Route::get('/show_cart',[CartController::class,'show_cart']);
+Route::post('/submit_cart',[CartController::class,'submit_cart']);
+Route::post('/payment',[CartController::class,'pay']);
 Route::delete('/remove_cart/{id}/delete',[CartController::class,'remove_cart']);
 
 Route::get('/register',[AuthController::class,'create']);

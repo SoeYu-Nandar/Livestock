@@ -42,5 +42,12 @@
           <card class="footer">
             <h6 class="text-danger">Total Cost : {{$total}} Kyats</h6>
           </card>
+          <form action="{{ url('submit_cart') }}" method="POST">
+            @csrf
+            <div class="d-flex justify-content-end mt-3">
+                <button type="submit" class="btn btn-primary">သေချာပါသည်</button>
+            </div>
+        </form>
+        
     </x-card-wrapper>
 </x-layout>
