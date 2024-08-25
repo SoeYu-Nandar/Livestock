@@ -16,14 +16,14 @@ class AdminMedicineController extends Controller
         $medicines = Medicine::latest()->paginate(6);
             // Check for low stock products
         $lowStockProducts = $medicines->filter(function ($product) {
-            return $product->quantity < 3;
+            return $product->quantity < 6;
         });
         return view('admin.medicines.show',compact('medicines', 'lowStockProducts'));
    }
    public function store(Request $request)
    {
      $formData = $request->validate([
-          "medicine_name" => ["required"],
+          "name" => ["required"],
           "company_name" =>  ["required"],
           "animals" =>  ["required"],
           "methods" =>  ["required"],
@@ -47,7 +47,7 @@ class AdminMedicineController extends Controller
    {
      $medicine = Medicine::find($id);
     $formData = $request->validate([
-          "medicine_name" => ["required"],
+          "name" => ["required"],
           "company_name" =>  ["required"],
           "animals" =>  ["required"],
           "methods" =>  ["required"],
@@ -56,8 +56,8 @@ class AdminMedicineController extends Controller
           "quantity" =>  ["required"],
       ]);
      
-      $formData['image'] = $request->file('image') ?
-      $request->file('image')->store('thumbnails') : $medicine->image;
+      $formData['image'] = $request->file('thumbnail') ?
+      $request->file('thumbnail')->store('thumbnails') : $medicine->image;
       $medicine->update($formData);
   return redirect('/admin/medicines/show');      
    }

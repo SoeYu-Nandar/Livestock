@@ -24,7 +24,7 @@ class AdminFoodController extends Controller
         $chickenfoods = Chickenfood::latest()->paginate(6);
         // Check for low stock products
         $lowStockProducts = $chickenfoods->filter(function ($product) {
-            return $product->quantity < 3;
+            return $product->quantity < 6;
         });
         return view('admin.foods.chicken_show', compact('chickenfoods', 'lowStockProducts'));
     }
@@ -85,7 +85,7 @@ class AdminFoodController extends Controller
         $pigfoods = Pigfood::latest()->paginate(6);
         // Check for low stock products
         $lowStockProducts = $pigfoods->filter(function ($product) {
-            return $product->quantity < 3;
+            return $product->quantity < 6;
         });
         return view('admin.foods.pig_show', compact('pigfoods', 'lowStockProducts'));;
     }
@@ -146,7 +146,7 @@ class AdminFoodController extends Controller
         $duckfoods = Duckfood::latest()->paginate(6);
         // Check for low stock products
         $lowStockProducts = $duckfoods->filter(function ($product) {
-            return $product->quantity < 3;
+            return $product->quantity < 6;
         });
         return view('admin.foods.duck_show', compact('duckfoods', 'lowStockProducts'));;
     }
@@ -206,7 +206,7 @@ class AdminFoodController extends Controller
         $cowfoods = Cowfood::latest()->paginate(6);
         // Check for low stock products
         $lowStockProducts = $cowfoods->filter(function ($product) {
-            return $product->quantity < 3;
+            return $product->quantity < 6;
         });
         return view('admin.foods.cow_show', compact('cowfoods', 'lowStockProducts'));;
     }
@@ -266,7 +266,7 @@ class AdminFoodController extends Controller
         $fishfoods = Fishfood::latest()->paginate(6);
         // Check for low stock products
         $lowStockProducts = $fishfoods->filter(function ($product) {
-            return $product->quantity < 3;
+            return $product->quantity < 6;
         });
         return view('admin.foods.fish_show', compact('fishfoods', 'lowStockProducts'));;
     }

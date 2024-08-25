@@ -119,7 +119,7 @@ class CartController extends Controller
   }
   public function pay()
   {
-    return redirect('/')->with('success', 'ငွေပေးချေမှုအောင်မြင်ပါသည်');
+    return redirect('/')->with('success', 'ကျေးဇူးအထူးတင်ရှိပါသည်');
   }
   
     public function remove_cart($id)

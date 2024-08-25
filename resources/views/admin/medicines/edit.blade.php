@@ -4,7 +4,7 @@
         <form enctype="multipart/form-data" action="/admin/medicines/{{$medicine->id}}/update" method="POST">
             @method('patch')
             @csrf
-            <x-form.input name="medicine name"  value="{{$medicine->medicine_name}}"/>
+            <x-form.input name="name"  value="{{$medicine->name}}"/>
             <x-form.input name="image" type="file"/>
             <img src="/storage/{{$medicine->image}}" width="200px" height="100px" alt="">
             <x-form.input name="company name"  value="{{$medicine->company_name}}"/>

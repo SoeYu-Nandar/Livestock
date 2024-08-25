@@ -3,7 +3,7 @@
     <x-card-wrapper>
         <form enctype="multipart/form-data" action="/admin/medicines/store" method="POST">
             @csrf
-            <x-form.input name="medicine name"/>
+            <x-form.input name="name"/>
             <x-form.input name="image" type="file"/>
             <x-form.input name="company name" />
             <x-form.input name="animals" />

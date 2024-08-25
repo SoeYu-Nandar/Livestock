@@ -40,7 +40,7 @@
             </tbody>
           </table>
           <card class="footer">
-            <h6 class="text-danger">Total Cost : {{$total}} Kyats</h6>
+            <h6 class="text-danger">Total Cost : {{$total}} ကျပ်</h6>
           </card>
           <form action="{{ url('submit_cart') }}" method="POST">
             @csrf

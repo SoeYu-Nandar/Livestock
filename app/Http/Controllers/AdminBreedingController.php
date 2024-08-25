@@ -19,7 +19,7 @@ class AdminBreedingController extends Controller
     $chickenbreedings = Chickenbreeding::latest()->paginate(6);
         // Check for low stock products
     $lowStockProducts = $chickenbreedings->filter(function ($product) {
-        return $product->quantity < 3;
+        return $product->quantity < 20;
     });
     return view('admin.breedings.chicken_show',compact('chickenbreedings', 'lowStockProducts'));
    }
@@ -78,7 +78,7 @@ class AdminBreedingController extends Controller
         $pigbreedings = Pigbreeding::latest()->paginate(6);
             // Check for low stock products
         $lowStockProducts = $pigbreedings->filter(function ($product) {
-            return $product->quantity < 3;
+            return $product->quantity < 20;
         });
         return view('admin.breedings.pig_show',compact('pigbreedings', 'lowStockProducts'));
    }
