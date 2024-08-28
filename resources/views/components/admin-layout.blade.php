@@ -101,7 +101,10 @@
                 </li>
               </ul>
             </div>
-
+            <a href="/admin/payments/show" class="list-group-item list-group-item-action">
+              <i class="bi bi-wallet"></i>
+            <span class="d-none d-lg-inline">Payment List</span>
+            </a>
             <a href="/" class="list-group-item list-group-item-action">
               <span class="d-none d-lg-inline">
                 <form action="/logout" method="POST">@csrf

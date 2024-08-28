@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Cowfood;
+use App\Models\Payment;
 use App\Models\Pigfood;
 use App\Models\Duckfood;
 use App\Models\Fishfood;
@@ -108,19 +109,48 @@ class CartController extends Controller
     $customer = Auth::user(); // Assuming the customer is the authenticated user
 
     // Render the view with the customer and cart items
-    $view = view('carts.customer_card', compact('customer', 'carts'))->render();
+   return  $view = view('carts.customer_card', compact('customer', 'carts'));
+    // $view = view('carts.customer_card', compact('customer', 'carts'))->render();
 
-    // Now, delete the cart items
-    Cart::where('user_id', $id)->delete();
+    // // Now, delete the cart items
+    // Cart::where('user_id', $id)->delete();
 
-    // Return the rendered view
-    return $view;
+    // // Return the rendered view
+    // return $view;
     
   }
-  public function pay()
-  {
-    return redirect('/')->with('success', 'ကျေးဇူးအထူးတင်ရှိပါသည်');
-  }
+    public function pay()
+    {
+        $user = Auth::user(); // Get the authenticated user
+        return view('carts.pay_system', compact('user'));
+    }
+    public function done(Request $request)
+    {
+        // Validate input data
+        $formData = $request->validate([
+            "phoneno" => ["required"],
+            "address" => ["required"],
+            "payment" => ["required"]
+        ]);
+
+        // Get current authenticated user ID
+        $formData['user_id'] = Auth::id();
+
+        // Handle file upload
+        if ($request->hasFile('screenshot')) {
+            $formData['screenshot'] = $request->file('screenshot')->store('thumbnails');
+        }
+
+        // Create a new payment record
+        Payment::create($formData);
+        $id = Auth::user()->id;
+        Cart::where('user_id', $id)->delete();
+
+        // Redirect to homepage
+        return redirect('/')->with('success','ဝယ်ယူအားပေးမှုအတွက်ကျေးဇူးအထူးတင်ရှိပါသည်');
+    }
+
+
   
     public function remove_cart($id)
     {

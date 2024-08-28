@@ -17,6 +17,7 @@ use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\AdminFoodController;
 use App\Http\Controllers\BlogChickenController;
+use App\Http\Controllers\AdminPaymentController;
 use App\Http\Controllers\AdminBreedingController;
 use App\Http\Controllers\AdminMedicineController;
 
@@ -53,7 +54,8 @@ Route::get('/fish_breedings',[BreedingController::class,'fish_index']);
 Route::post('/add_cart',[CartController::class,'add_cart']);
 Route::get('/show_cart',[CartController::class,'show_cart']);
 Route::post('/submit_cart',[CartController::class,'submit_cart']);
-Route::post('/payment',[CartController::class,'pay']);
+Route::get('/payment',[CartController::class,'pay']);
+Route::post('/done',[CartController::class,'done']);
 Route::delete('/remove_cart/{id}/delete',[CartController::class,'remove_cart']);
 
 Route::get('/register',[AuthController::class,'create']);
@@ -76,6 +78,8 @@ Route::delete('/admin/blogs/{blogchicken:slug}/delete', [AdminBlogController::cl
 Route::get('/admin/faq', [AdminfaqController::class, 'faq_index']);
 Route::get('/admin/faq/{id}/reply', [AdminfaqController::class, 'faq_reply']);
 Route::patch('/admin/faq/{id}/update', [AdminfaqController::class, 'faq_update']);
+
+Route::get('/admin/payments/show', [AdminPaymentController::class, 'show']);
 
 Route::get('/admin/foods/chicken_food/create', [AdminFoodController::class, 'chicken_create']);
 Route::get('/admin/foods/chicken_food/show', [AdminFoodController::class, 'chicken_show']);

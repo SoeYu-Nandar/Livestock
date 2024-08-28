@@ -13,7 +13,7 @@ class Medicine extends Model
     {
         $query->when($filter['search'] ?? false, function ($query, $search) {
             $query->where(function ($query) use ($search) {
-                $query->where('medicine_name', 'LIKE', '%' . $search . '%');
+                $query->where('name', 'LIKE', '%' . $search . '%');
                    
             });
         });
