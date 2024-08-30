@@ -28,6 +28,7 @@ class AdminMedicineController extends Controller
           "animals" =>  ["required"],
           "methods" =>  ["required"],
           "diseases" =>  ["required"],
+          "weight" =>['required'],
           "price" =>  ["required"],
           "quantity" =>  ["required"],
       ]);
@@ -52,6 +53,7 @@ class AdminMedicineController extends Controller
           "animals" =>  ["required"],
           "methods" =>  ["required"],
           "diseases" =>  ["required"],
+          "weight" =>['required'],
           "price" =>  ["required"],
           "quantity" =>  ["required"],
       ]);

@@ -5,6 +5,7 @@
             <thead>
                 <tr>
                     <th scope="col">User_Id</th>
+                    <th scope="col">UserName</th>
                     <th scope="col">Phone Number</th>
                     <th scope="col">Address</th>
                     <th scope="col">Payment method</th>
@@ -16,12 +17,12 @@
                 @foreach ($payments as $payment)
                 <tr>
                     <td>{{$payment->user_id}}</td>
+                    <td>{{$payment->user->name}}</td>
                     <td>{{$payment->phoneno}}</td>
                     <td>{{$payment->address}}</td>
                     <td>{{$payment->payment}}</td>
                     <td><img src="/storage/{{$payment->screenshot}}" alt="" width="100px" height="100px"></td>
-                    <td><a href="/payments/{{$payment->id}}" class="btn btn-info">View Details</a></td>
-                    
+                    <td><a href="/admin/payments/{{$payment->id}}" class="btn btn-info">View Details</a></td>
                 </tr>
                 @endforeach
             </tbody>

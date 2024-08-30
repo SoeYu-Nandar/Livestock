@@ -11,6 +11,7 @@
             <x-form.input name="animals"  value="{{$medicine->animals}}"/>
             <x-form.input name="methods"  value="{{$medicine->methods}}"/>
             <x-form.input name="diseases"  value="{{$medicine->diseases}}"/>
+            <x-form.input name="weight"  value="{{$medicine->weight}}"/>
             <x-form.input name="price"  value="{{$medicine->price}}"/>
             <x-form.input name="quantity"  value="{{$medicine->quantity}}"/>
             <div class="d-flex justify-content-start mt-3">

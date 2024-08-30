@@ -15,6 +15,7 @@
                 </select>
             <x-form.input name="price" />
             <x-form.input name="quantity" />
+            <x-form.input name="weight" />
             <x-form.input name="image" type="file"/>
             <x-form.textarea name="feeding program" />
             <div class="d-flex justify-content-start mt-3">

@@ -16,6 +16,7 @@
                 </select>
             <x-form.input name="price" value="{{$pigfood->price}}"/>
             <x-form.input name="quantity" value="{{$pigfood->quantity}}"/>
+            <x-form.input name="weight" value="{{$pigfood->weight}}"/>
             <x-form.input name="thumbnail" type="file"/>
             <img src="/storage/{{$pigfood->image}}" width="200px" height="100px" alt="">
             <x-form.textarea name="feeding program" value="{{$pigfood->feeding_program}}"/>

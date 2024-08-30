@@ -2,7 +2,7 @@
 <x-card-wrapper>
    
     <div class="text-center">
-    <h4 class ="mb-3">မိတ်ဆွေ၏ဝယ်ယူမှုအောင်မြင်ပါသည်</h4>
+    {{-- <h4 class ="mb-3">မိတ်ဆွေ၏ဝယ်ယူမှုအောင်မြင်ပါသည်</h4> --}}
 
     <p class="fw-bold">ဝယ်ယူသူအမည်: {{ $customer->name }}</p>
     

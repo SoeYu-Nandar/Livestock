@@ -36,6 +36,7 @@ class AdminFoodController extends Controller
             "company_id" =>  ["required", Rule::exists('companies', 'id')],
             "price" =>  ["required"],
             "quantity" =>  ["required"],
+            "weight" =>  ["required"],
             "feeding_program" =>  ["required"]
         ]);
         $formData['image'] = $request->file('image')->store('thumbnails');
@@ -60,6 +61,7 @@ class AdminFoodController extends Controller
             "company_id" =>  ["required", Rule::exists('companies', 'id')],
             "price" =>  ["required"],
             "quantity" =>  ["required"],
+            "weight" =>  ["required"],
             "feeding_program" =>  ["required"]
         ]);
         $formData['image'] = $request->file('thumbnail') ?
@@ -97,6 +99,7 @@ class AdminFoodController extends Controller
             "company_id" =>  ["required", Rule::exists('companies', 'id')],
             "price" =>  ["required"],
             "quantity" =>  ["required"],
+            "weight" =>  ["required"],
             "feeding_program" =>  ["required"]
         ]);
         $formData['image'] = $request->file('image')->store('thumbnails');
@@ -121,6 +124,7 @@ class AdminFoodController extends Controller
             "company_id" =>  ["required", Rule::exists('companies', 'id')],
             "price" =>  ["required"],
             "quantity" =>  ["required"],
+            "weight" =>  ["required"],
             "feeding_program" =>  ["required"]
         ]);
         $formData['image'] = $request->file('thumbnail') ?
@@ -158,6 +162,7 @@ class AdminFoodController extends Controller
             "company_id" =>  ["required", Rule::exists('companies', 'id')],
             "price" =>  ["required"],
             "quantity" =>  ["required"],
+            "weight" =>  ["required"],
             "feeding_program" =>  ["required"]
         ]);
         $formData['image'] = $request->file('image')->store('thumbnails');
@@ -181,6 +186,7 @@ class AdminFoodController extends Controller
             "company_id" =>  ["required", Rule::exists('companies', 'id')],
             "price" =>  ["required"],
             "quantity" =>  ["required"],
+            "weight" =>  ["required"],
             "feeding_program" =>  ["required"]
         ]);
         $formData['image'] = $request->file('thumbnail') ?
@@ -218,6 +224,7 @@ class AdminFoodController extends Controller
             "company_id" =>  ["required", Rule::exists('companies', 'id')],
             "price" =>  ["required"],
             "quantity" =>  ["required"],
+            "weight" =>  ["required"],
             "feeding_program" =>  ["required"]
         ]);
         $formData['image'] = $request->file('image')->store('thumbnails');
@@ -242,6 +249,7 @@ class AdminFoodController extends Controller
             "company_id" =>  ["required", Rule::exists('companies', 'id')],
             "price" =>  ["required"],
             "quantity" =>  ["required"],
+            "weight" =>  ["required"],
             "feeding_program" =>  ["required"]
         ]);
         $formData['image'] = $request->file('thumbnail') ?
@@ -278,6 +286,7 @@ class AdminFoodController extends Controller
             "company_id" =>  ["required", Rule::exists('companies', 'id')],
             "price" =>  ["required"],
             "quantity" =>  ["required"],
+            "weight" =>  ["required"],
             "feeding_program" =>  ["required"]
         ]);
         $formData['image'] = $request->file('image')->store('thumbnails');
@@ -302,6 +311,7 @@ class AdminFoodController extends Controller
             "company_id" =>  ["required", Rule::exists('companies', 'id')],
             "price" =>  ["required"],
             "quantity" =>  ["required"],
+            "weight" =>  ["required"],
             "feeding_program" =>  ["required"]
         ]);
         $formData['image'] = $request->file('thumbnail') ?

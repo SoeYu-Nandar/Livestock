@@ -7,7 +7,21 @@
         <div class="card" style="border:none;">
         <div class="row">
           <div class="col-md-4">
-            <img src="/storage/{{$cowfood->image}}" alt="" class="img-fluid rounded" style="height:300px;">
+            <!-- Image Thumbnail -->
+          <img src="/storage/{{$cowfood->image}}" class="img-fluid rounded" alt="Thumbnail"
+          style="max-width: 300px; cursor: pointer;height:300px;" data-bs-toggle="modal" data-bs-target="#imageModal">
+
+        <!-- Modal -->
+        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content">
+              {{-- <button type="button" class="btn-close m-2" data-bs-dismiss="modal" aria-label="Close" style="border:none;"></button> --}}
+              <div class="modal-body p-0">
+                <img src="/storage/{{$cowfood->image}}" class="w-100" alt="Full Image">
+              </div>
+            </div>
+          </div>
+        </div>
           </div>
           <div class="col-md-8">
             <div class="card-body">
@@ -15,6 +29,7 @@
               <p class="card-text">ကုဒ်နံပါတ် - {{$cowfood->code}}</p>
                 <p class="card-text">ကျွေးရမည့်ကာလ - {{$cowfood->feeding_program}}</p>
                 <p class="card-text">ဈေးနှုန်း - {{$cowfood->price}} ကျပ်</p>
+                <p class="card-text">အလေးချိန် - {{$cowfood->weight}} ကီလို</p>
                 <p class="card-text">ကုမ္ပဏီအမည် - {{$cowfood->company->name}} Co.Ltd</p>
                 <form action="{{ url('add_cart') }}" method="POST">
                   @csrf

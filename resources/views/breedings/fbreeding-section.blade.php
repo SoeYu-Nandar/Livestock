@@ -16,8 +16,25 @@
         <tbody>
           @foreach($fbreedings as $fbreeding)
           <tr>
-            <th scope="row">{{$fbreeding->description}}</th>
-            <td><img src="/storage/{{$fbreeding->image}}" class="card-img-top" alt="..." style="width:100px;height:100px;"></td>
+            <td scope="row">{{$fbreeding->description}}</td>
+            
+            <td>
+              <!-- Image Thumbnail -->
+              <img src="/storage/{{$fbreeding->image}}" class="img-fluid rounded thumbnail" alt="Thumbnail"
+                style="max-width: 100px; cursor: pointer; height: 100px;" data-bs-toggle="modal"
+                data-bs-target="#imageModal" data-bs-image="/storage/{{$fbreeding->image}}">
+              </td>
+    
+              <!-- Common Modal -->
+              <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-md">
+                  <div class="modal-content">
+                    <div class="modal-body p-0">
+                      <img id="modalImage" src="" class="w-100" alt="Full Image">
+                    </div>
+                  </div>
+                </div>
+              </div>
             <td>{{$fbreeding->price}} ကျပ်</td>
             <td>
               <form action="{{ url('add_cart') }}" method="POST">
@@ -41,6 +58,17 @@
           </tr>
           @endforeach
         </tbody>
+        <script>
+          // Select all thumbnail images
+          document.querySelectorAll('.thumbnail').forEach(item => {
+              item.addEventListener('click', function() {
+                  // Get the image source from the clicked thumbnail
+                  const imageSrc = this.getAttribute('data-bs-image');
+                  // Update the modal image source
+                  document.getElementById('modalImage').setAttribute('src', imageSrc);
+              });
+          });
+      </script>
       </table>
     </x-card-wrapper>
 </x-layout>

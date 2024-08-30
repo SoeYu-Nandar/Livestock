@@ -9,6 +9,7 @@
             <x-form.input name="animals" />
             <x-form.input name="methods" />
             <x-form.input name="diseases" />
+            <x-form.input name="weight" />
             <x-form.input name="price" />
             <x-form.input name="quantity" />
             <div class="d-flex justify-content-start mt-3">

@@ -16,8 +16,25 @@
           <tbody>
             @foreach($pbreedings as $pbreeding)
             <tr>
-              <th scope="row">{{$pbreeding->description}}</th>
-              <td><img src="/storage/{{$pbreeding->image}}" class="card-img-top" alt="..." style="width:100px;height:100px;"></td>
+              <td scope="row">{{$pbreeding->description}}</td>
+              
+              <td>
+                <!-- Image Thumbnail -->
+                <img src="/storage/{{$pbreeding->image}}" class="img-fluid rounded thumbnail" alt="Thumbnail"
+                  style="max-width: 100px; cursor: pointer; height: 100px;" data-bs-toggle="modal"
+                  data-bs-target="#imageModal" data-bs-image="/storage/{{$pbreeding->image}}">
+                </td>
+      
+                <!-- Common Modal -->
+                <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-md">
+                    <div class="modal-content">
+                      <div class="modal-body p-0">
+                        <img id="modalImage" src="" class="w-100" alt="Full Image">
+                      </div>
+                    </div>
+                  </div>
+                </div>
               <td>{{$pbreeding->price}} ကျပ်</td>
               <td>
                 <form action="{{ url('add_cart') }}" method="POST">
@@ -28,7 +45,7 @@
                   <input type="hidden" name="product_price" value="{{ $pbreeding->price }}">
                   <div class="row">
                     <div class="col-12 col-md-4 mb-4 mb-md-0">
-                      <input type="number" class="form-control" name="quantity" value="10" min="10" max="15">
+                      <input type="number" class="form-control" name="quantity" value="500" min="500" max="1000">
                     </div>
                     <div class="col-12 col-md-4">
                       <button class="btn btn-info w-100 rounded-pill" type="submit" id="button-addon2">
@@ -42,5 +59,16 @@
             @endforeach
         </tbody>
       </table>
+      <script>
+        // Select all thumbnail images
+        document.querySelectorAll('.thumbnail').forEach(item => {
+            item.addEventListener('click', function() {
+                // Get the image source from the clicked thumbnail
+                const imageSrc = this.getAttribute('data-bs-image');
+                // Update the modal image source
+                document.getElementById('modalImage').setAttribute('src', imageSrc);
+            });
+        });
+    </script>
     </x-card-wrapper>
 </x-layout>
