@@ -30,6 +30,8 @@ Route::post('/blogs/{blogchicken:slug}/comments', [CommentController::class, 'st
 Route::get('/faq', [FaqController::class, 'faq_index']);
 Route::post('/faq/store', [FaqController::class, 'faq_store']);
 
+
+
 Route::get('/chicken_foods',[CfoodController::class,'index']);
 Route::get('/chicken_foods/{id}',[CfoodController::class,'show']);
 

@@ -6,18 +6,28 @@
                 <tr>
                     <th scope="col">User_Id</th>
                     <th scope="col">UserName</th>
+                    <th scope="col">Purchase List</th>
                     <th scope="col">Phone Number</th>
                     <th scope="col">Address</th>
                     <th scope="col">Payment method</th>
                     <th scope="col">Image</th>
                     <th scope="col">Action</th>
                 </tr>
-            </thead> 
+            </thead>
             <tbody>
                 @foreach ($payments as $payment)
                 <tr>
                     <td>{{$payment->user_id}}</td>
                     <td>{{$payment->user->name}}</td>
+                    <td>
+                        @if($payment->cartItems->isNotEmpty())
+                        @foreach ($payment->cartItems as $cartItem)
+                        {{ $cartItem->product_name }}<br> <!-- Display product names associated with this payment -->
+                        @endforeach
+                        @else
+                        No items found.
+                        @endif
+                    </td>
                     <td>{{$payment->phoneno}}</td>
                     <td>{{$payment->address}}</td>
                     <td>{{$payment->payment}}</td>

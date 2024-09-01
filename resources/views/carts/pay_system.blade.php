@@ -9,8 +9,14 @@
           @csrf
           <div class="container">
               <div class="row">
+                @php $total = 0; @endphp
+                @foreach ($carts as $cart)
+                @php $total += $cart->product_price * $cart->quantity; @endphp
+                @endforeach
                   <div class="col-md-5 mx-auto">
                       <p class="fw-bold">ဝယ်ယူသူအမည်: {{ $user->name }}</p>
+                      <p class="fw-bold">စုစုပေါင်း : {{ $total }} ကျပ်</p>
+                      <input type="hidden" name="total" value="{{ $total }}">
                       <div class="mb-3">
                           <label for="username" class="form-label">ဖုန်းနံပါတ်</label>
                           <input type="text" class="form-control" id="username" name="phoneno" required>
@@ -46,8 +52,7 @@
                   </div>
               </div>
           </div>
-      </form>
-      
+      </form>  
     
     </x-card-wrapper>
 </x-layout>
