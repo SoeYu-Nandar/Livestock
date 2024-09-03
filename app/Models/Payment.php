@@ -17,6 +17,10 @@ public function cartItems()
 {
     return $this->hasMany(Cart::class, 'payment_id'); // Ensure this column exists and correctly links
 }
+public function purchases()
+{
+    return $this->hasMany(Purchase::class);
+}
 
 
 }

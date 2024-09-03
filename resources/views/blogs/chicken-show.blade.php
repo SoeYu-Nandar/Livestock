@@ -2,7 +2,7 @@
     <!-- single blog section -->
     <div class="container">
         <div class="row">
-            <div class="col-md-6 mx-auto text-center">
+            <div class="col-md-8 mx-auto text-center">
                 <img src="/storage/{{$blogchicken->thumbnail}}" class="card-img-top" alt="..." />
                 <h3 class="my-3">{{$blogchicken->title}}</h3>
                 <div class="tags mb-2">

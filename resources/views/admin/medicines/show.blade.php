@@ -22,6 +22,7 @@
                     <th scope="col">Accessible Animals</th>
                     <th scope="col">Accessible method</th>
                     <th scope="col">Diseases</th>
+                    <th scope="col">Net Weight</th>
                     <th scope="col">Price</th>
                     <th scope="col">Quantity</th>
                     <th scope="col" colspan="2">Action</th>
@@ -37,6 +38,7 @@
                     <td>{{$medicine->animals}}</td>
                     <td>{{$medicine->methods}}</td>
                     <td>{{$medicine->diseases}}</td>
+                    <td>{{$medicine->weight}}</td>
                     <td>{{$medicine->price}}</td>
                     <td>{{$medicine->quantity}}</td>
 

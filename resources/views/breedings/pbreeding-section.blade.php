@@ -73,5 +73,6 @@
             });
         });
     </script>
+    {{$pbreedings->links()}}
     </x-card-wrapper>
 </x-layout>

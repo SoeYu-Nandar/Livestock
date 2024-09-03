@@ -83,6 +83,8 @@ Route::patch('/admin/faq/{id}/update', [AdminfaqController::class, 'faq_update']
 
 Route::get('/admin/payments/show', [AdminPaymentController::class, 'show']);
 Route::get('/admin/payments/{id}', [AdminPaymentController::class, 'detail']);
+// Route::delete('/admin/payments/{id}/delete', [AdminPaymentController::class, 'destroy']);
+
 
 Route::get('/admin/foods/chicken_food/create', [AdminFoodController::class, 'chicken_create']);
 Route::get('/admin/foods/chicken_food/show', [AdminFoodController::class, 'chicken_show']);

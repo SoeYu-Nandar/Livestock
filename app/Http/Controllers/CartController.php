@@ -9,6 +9,7 @@ use App\Models\Pigfood;
 use App\Models\Duckfood;
 use App\Models\Fishfood;
 use App\Models\Medicine;
+use App\Models\Purchase;
 use App\Models\Chickenfood;
 use App\Models\Pigbreeding;
 use App\Models\Fishbreeding;
@@ -105,24 +106,31 @@ class CartController extends Controller
     {
         $id = Auth::user()->id;
         $carts = Cart::where('user_id', '=', $id)->get();
-        $customer = Auth::user(); // Assuming the customer is the authenticated user
+        $customer = Auth::user();
 
-        // Render the view with the customer and cart items
+
+        foreach ($carts as $item) {
+            Purchase::create([
+                'user_id' => $customer->id,
+                'payment_id'=>$item->payment_id,
+                'product_type' => $item->product_type,
+                'product_name' => $item->product_name,
+                'product_id' => $item->product_id,
+                'product_price' => $item->product_price,
+                'quantity' => $item->quantity,
+                
+            ]);
+        }
+        Cart::where('user_id', $customer->id)->delete();
+        
         return  $view = view('carts.customer_card', compact('customer', 'carts'));
-        // $view = view('carts.customer_card', compact('customer', 'carts'))->render();
-
-        // // Now, delete the cart items
-        // Cart::where('user_id', $id)->delete();
-
-        // // Return the rendered view
-        // return $view;
-
+        
     }
     public function pay()
     {
         $id = Auth::user()->id;
         $user = Auth::user(); // Get the authenticated user
-        $carts = Cart::where('user_id', '=', $id)->get();
+        $carts = Cart::where('user_id', '=', $id)->get()->where('archived', false);
         return view('carts.pay_system', compact('user', 'carts'));
     }
     public function done(Request $request)
@@ -134,8 +142,7 @@ class CartController extends Controller
             "payment" => ["required"]
         ]);
 
-        // // Get current authenticated user ID
-        // $formData['user_id'] = Auth::id();
+       
 
         $userId = Auth::id();
         // Handle file upload
@@ -147,12 +154,8 @@ class CartController extends Controller
 
         // Update cart items with the new payment_id
         Cart::where('user_id', $userId)->update(['payment_id' => $payment->id,'archived' => true]);
-
-        // // Create a new payment record
-        // $payment = Payment::create($formData);
-        // $id = Auth::user()->id;
-        Cart::where('user_id', $userId)->where('archived', false)->delete();
-
+        Purchase::where('user_id', $userId)->update(['payment_id' => $payment->id]);
+        
         // Redirect to homepage
         return redirect('/')->with('success', 'ဝယ်ယူအားပေးမှုအတွက်ကျေးဇူးအထူးတင်ရှိပါသည်');
     }

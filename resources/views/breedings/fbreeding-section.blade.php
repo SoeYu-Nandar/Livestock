@@ -59,6 +59,7 @@
               </form>      
             </td>
           </tr>
+
           @endforeach
         </tbody>
         <script>
@@ -73,5 +74,6 @@
           });
       </script>
       </table>
+      {{$fbreedings->links()}}
     </x-card-wrapper>
 </x-layout>

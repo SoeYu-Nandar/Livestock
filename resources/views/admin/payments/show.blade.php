@@ -1,4 +1,7 @@
 <x-admin-layout>
+    @if (session('danger'))
+    <div class="alert alert-danger text-center">{{session('danger')}}</div>
+    @endif
     <h3 class="my-3 text-center text-primary">Payment List</h3>
     <x-card-wrapper>
         <table class="table text-center">
@@ -20,13 +23,16 @@
                     <td>{{$payment->user_id}}</td>
                     <td>{{$payment->user->name}}</td>
                     <td>
-                        @if($payment->cartItems->isNotEmpty())
-                        @foreach ($payment->cartItems as $cartItem)
-                        {{ $cartItem->product_name }}<br> <!-- Display product names associated with this payment -->
+                        
+                        @if($payment->purchases->isNotEmpty())
+                        
+                        @foreach ($payment->purchases as $purchase)
+                        -{{ $purchase->product_name }}<br> <!-- Display product names associated with this payment -->
                         @endforeach
                         @else
                         No items found.
                         @endif
+                    
                     </td>
                     <td>{{$payment->phoneno}}</td>
                     <td>{{$payment->address}}</td>
@@ -37,6 +43,6 @@
                 @endforeach
             </tbody>
         </table>
-        {{$payments->links()}}
+        {{-- {{$payments->links()}} --}}
     </x-card-wrapper>
 </x-admin-layout>
