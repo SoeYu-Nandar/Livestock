@@ -110,28 +110,30 @@ class CartController extends Controller
 
 
         foreach ($carts as $item) {
+
             Purchase::create([
                 'user_id' => $customer->id,
-                'payment_id'=>$item->payment_id,
+                'payment_id' => $item->payment_id,
                 'product_type' => $item->product_type,
                 'product_name' => $item->product_name,
                 'product_id' => $item->product_id,
                 'product_price' => $item->product_price,
                 'quantity' => $item->quantity,
-                
+
             ]);
         }
-        Cart::where('user_id', $customer->id)->delete();
-        
+        // $purchases = Purchase::where('user_id', '=', $id)->get();
+
+
         return  $view = view('carts.customer_card', compact('customer', 'carts'));
-        
     }
     public function pay()
     {
         $id = Auth::user()->id;
         $user = Auth::user(); // Get the authenticated user
         $carts = Cart::where('user_id', '=', $id)->get()->where('archived', false);
-        return view('carts.pay_system', compact('user', 'carts'));
+        $purchases = Purchase::where('user_id', '=', $id)->get();
+        return view('carts.pay_system', compact('user', 'carts', 'purchases'));
     }
     public function done(Request $request)
     {
@@ -142,19 +144,31 @@ class CartController extends Controller
             "payment" => ["required"]
         ]);
 
-       
+
 
         $userId = Auth::id();
         // Handle file upload
         if ($request->hasFile('screenshot')) {
             $formData['screenshot'] = $request->file('screenshot')->store('thumbnails');
         }
-
+        // Create a new payment record
         $payment = Payment::create(array_merge($formData, ['user_id' => $userId]));
 
-        // Update cart items with the new payment_id
-        Cart::where('user_id', $userId)->update(['payment_id' => $payment->id,'archived' => true]);
-        Purchase::where('user_id', $userId)->update(['payment_id' => $payment->id]);
+        // Update only unarchived cart items with the new payment_id
+        Cart::where('user_id', $userId)
+            ->whereNull('payment_id')  // Only update items that haven't been assigned a payment
+            ->update(['payment_id' => $payment->id, 'archived' => true]);
+
+        // Update only purchases that haven't been assigned a payment
+        Purchase::where('user_id', $userId)
+            ->whereNull('payment_id')  // Ensure only purchases without a payment_id are updated
+            ->update(['payment_id' => $payment->id]);
+
+        // Optionally, you may want to keep records of archived items instead of deleting them
+        Cart::where('user_id', $userId)
+            ->where('payment_id', $payment->id)  // Only delete items associated with the current payment
+            ->delete();
+
         
         // Redirect to homepage
         return redirect('/')->with('success', 'ဝယ်ယူအားပေးမှုအတွက်ကျေးဇူးအထူးတင်ရှိပါသည်');
@@ -182,5 +196,4 @@ class CartController extends Controller
         $cart->delete();
         return redirect('/show_cart')->with('warning', 'မှာယူထားသောပစ္စည်းအားပယ်ဖျက်ပါသည်');
     }
-    
 }

@@ -34,8 +34,7 @@
            </div>
        </div>
    </div>
-        {{-- <img src="/img/wavepay.jpg" class="rounded" alt="..." width="300px" height="300px"
-            style="position:absolute;top:25px;right:10px;"> --}}
+       
         <form action="/done" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="container">

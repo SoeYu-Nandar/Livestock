@@ -7,7 +7,7 @@
         <table class="table text-center">
             <thead>
                 <tr>
-                    <th scope="col">User_Id</th>
+                   
                     <th scope="col">UserName</th>
                     <th scope="col">Purchase List</th>
                     <th scope="col">Phone Number</th>
@@ -20,7 +20,7 @@
             <tbody>
                 @foreach ($payments as $payment)
                 <tr>
-                    <td>{{$payment->user_id}}</td>
+                    
                     <td>{{$payment->user->name}}</td>
                     <td>
                         
@@ -43,6 +43,6 @@
                 @endforeach
             </tbody>
         </table>
-        {{-- {{$payments->links()}} --}}
+        {{$payments->links()}}
     </x-card-wrapper>
 </x-admin-layout>

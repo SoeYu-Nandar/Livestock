@@ -12,10 +12,10 @@ class AdminPaymentController extends Controller
 {
     public function show()
 {
-    $payments = Payment::with('purchases', 'user')->get();
-    $purchases = Purchase::where('payment_id')->latest()->paginate(6);
-    $cartItems = Cart::where('archived', true)->get(); // Or use more specific queries
-    return view('admin.payments.show', compact('payments','purchases'));
+    $payments = Payment::with('purchases', 'user')->latest()->paginate(6);
+    // $purchases = Purchase::latest()->paginate(6);
+    $cartItems = Cart::where('archived', true)->get(); 
+    return view('admin.payments.show', compact('payments'));
 }
 
 
