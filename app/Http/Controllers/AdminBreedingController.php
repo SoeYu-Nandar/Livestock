@@ -29,8 +29,10 @@ class AdminBreedingController extends Controller
      $formData = $request->validate([
           "name" => ["required"],
           "description" => ["required"],
+          "remark" => ["required"],
           "price" =>  ["required"],
           "quantity" =>  ["required"]
+          
      ]);
       $formData['image'] = $request->file('image')->store('thumbnails');
       Chickenbreeding::create($formData);
@@ -52,6 +54,7 @@ class AdminBreedingController extends Controller
      $formData = $request->validate([
           "name" => ["required"],
           "description" => ["required"],
+          "remark" => ["required"],
           "price" =>  ["required"],
           "quantity" =>  ["required"]
      ]);

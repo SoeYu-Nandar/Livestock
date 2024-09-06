@@ -6,6 +6,7 @@
             @csrf
             <x-form.input name="name" value="{{$chickenbreeding->name}}"/>
             <x-form.input name="description"  value="{{$chickenbreeding->description}}"/>
+            <x-form.textarea name="remark" value="{{$chickenbreeding->remark}}"/>
             <x-form.input name="image" type="file"/>
             <img src="/storage/{{$chickenbreeding->image}}" width="200px" height="100px" alt="">
             <x-form.input name="price"  value="{{$chickenbreeding->price}}"/>

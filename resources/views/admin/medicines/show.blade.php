@@ -7,7 +7,7 @@
     <div class="alert alert-danger text-center">
         <b class="text-danger">Warning!</b><b>The following products are low in stock:</b></br>
         @foreach($lowStockProducts as $medicine)
-        {{ $medicine->medicine_name }} - Only {{ $medicine->quantity }} left</br>
+        {{ $medicine->name }} - Only {{ $medicine->quantity }} left</br>
         @endforeach
         <b class="text-secondary">Please fill the stock quantity!</b>
     </div>

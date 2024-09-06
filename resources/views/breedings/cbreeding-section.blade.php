@@ -13,6 +13,7 @@
         <tr>
           <th scope="col">သားပေါက်ဆိုင်ရာဖော်ပြချက်</th>
           <th scope="col">သားပေါက်ပုံများ</th>
+          <th scope="col">မှတ်ချက်</th>
           <th scope="col">ဈေးနှုန်းများ</th>
           <th scope="col">လုပ်ဆောင်မှုများ</th>
         </tr>
@@ -38,7 +39,9 @@
               </div>
             </div>
           </div>
+          <td style="text-align: left;">{{$cbreeding->remark}}</td>
           <td>{{$cbreeding->price}} ကျပ်</td>
+         
           <td>
             <form action="{{ url('add_cart') }}" method="POST">
               @csrf
@@ -47,10 +50,10 @@
               <input type="hidden" name="product_id" value="{{ $cbreeding->id }}">
               <input type="hidden" name="product_price" value="{{ $cbreeding->price }}">
               <div class="row">
-                <div class="col-12 col-md-4 mb-2 mb-md-0">
+                <div class="col-12 col-md-8 mb-2 mb-md-2">
                   <input type="number" class="form-control" name="quantity" value="500" min="500" max="1000">
                 </div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-8">
                   <button class="btn btn-info w-100 rounded-pill" type="submit" id="button-addon2">
                     <i class="bi bi-cart4"></i>
                   </button>
