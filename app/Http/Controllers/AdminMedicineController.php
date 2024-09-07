@@ -13,7 +13,10 @@ class AdminMedicineController extends Controller
    }
    public function show()
     {     
-        $medicines = Medicine::latest()->paginate(6);
+        $medicines = Medicine::latest()
+        ->filter(request(['search']))
+        ->paginate(6)
+        ->withQueryString(); 
             // Check for low stock products
         $lowStockProducts = $medicines->filter(function ($product) {
             return $product->quantity < 6;

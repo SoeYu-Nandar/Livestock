@@ -6,6 +6,17 @@
   @if(session('error'))
   <div class="alert alert-danger text-center">{{session('error')}}</div>
   @endif
+  <div class="containter">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <form action="" class="">
+          <div class="input-group my-4 ms-4">             
+              <input type="text" name="search" value="{{request('search')}}" class="form-control" autocomplete="false" placeholder="search by breeding name..." aria-describedby="button-addon2">
+              <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="bi bi-search-heart"></i></button>
+          </div>      
+        </form>
+      </div>          
+   </div>
   <x-card-wrapper>
     <table class="table">
         <thead class="table-warning">

@@ -9,7 +9,7 @@ class Medicine extends Model
 {
     use HasFactory;
     protected $guarded=[];
-    public function scopeFilter($query, $filter) //Fishfood::latest()->filter()
+    public function scopeFilter($query, $filter) 
     {
         $query->when($filter['search'] ?? false, function ($query, $search) {
             $query->where(function ($query) use ($search) {
