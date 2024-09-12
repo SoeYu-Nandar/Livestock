@@ -18,11 +18,12 @@
       </div>          
    </div>
   <x-card-wrapper>
-    <table class="table">
+    <table class="table text-center">
         <thead class="table-warning">
             <tr>
               <th scope="col">သားပေါက်ဆိုင်ရာဖော်ပြချက်</th>
               <th scope="col">သားပေါက်ပုံများ</th>
+              <th scope="col">မှတ်ချက်</th>
               <th scope="col">ဈေးနှုန်းများ</th>
               <th scope="col">လုပ်ဆောင်မှုများ</th>
             </tr>
@@ -49,6 +50,7 @@
                     </div>
                   </div>
                 </div>
+                <td style="text-align: left;">{{$pbreeding->remark}}</td>
               <td>{{$pbreeding->price}} ကျပ်</td>
               <td>
                 <form action="{{ url('add_cart') }}" method="POST">
@@ -58,10 +60,10 @@
                   <input type="hidden" name="product_id" value="{{ $pbreeding->id }}">
                   <input type="hidden" name="product_price" value="{{ $pbreeding->price }}">
                   <div class="row">
-                    <div class="col-12 col-md-4 mb-4 mb-md-0">
+                    <div class="col-12 col-md-8 mb-2 mb-md-2">
                       <input type="number" class="form-control" name="quantity" value="500" min="500" max="1000">
                     </div>
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-8">
                       <button class="btn btn-info w-100 rounded-pill" type="submit" id="button-addon2">
                         <i class="bi bi-cart4"></i>
                       </button>

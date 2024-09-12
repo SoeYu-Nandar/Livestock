@@ -5,6 +5,7 @@
             @csrf
             <x-form.input name="name" />
             <x-form.input name="description" />
+            <x-form.textarea name="remark" />
             <x-form.input name="image" type="file"/>
             <x-form.input name="price" />
             <x-form.input name="quantity" />           

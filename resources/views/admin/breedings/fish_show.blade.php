@@ -18,6 +18,7 @@
             <thead>
                 <tr>
                     <th scope="col">Description</th>
+                    <th scope="col">Remark</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Price</th>
                     <th scope="col" colspan="3">Action</th>
@@ -29,6 +30,7 @@
                 @foreach($fishbreedings as $fishbreeding)
                 <tr>
                     <td><a href="/fish_breedings" target="_blank">{{$fishbreeding->description}}</a></td>
+                    <td>{{$fishbreeding->remark}}</td>
                     <td>{{$fishbreeding->quantity}}</td>
                     <td>{{$fishbreeding->price}}</td>
                     <td><a href="/admin/breedings/fish_breeding/{{$fishbreeding->id}}/edit" class="btn btn-warning">

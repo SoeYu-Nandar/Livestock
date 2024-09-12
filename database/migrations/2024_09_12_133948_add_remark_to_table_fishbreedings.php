@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('chickenbreedings', function (Blueprint $table) {
+        Schema::table('fishbreedings', function (Blueprint $table) {
             $table->text('remark')->nullable;
         });
     }
@@ -21,7 +21,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('chickenbreedings', function (Blueprint $table) {
+        Schema::table('fishbreedings', function (Blueprint $table) {
             //
         });
     }

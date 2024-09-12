@@ -91,6 +91,7 @@ class AdminBreedingController extends Controller
      $formData = $request->validate([
           "name" => ["required"],
           "description" => ["required"],
+          "remark" => ["required"],
           "price" =>  ["required"],
           "quantity" =>  ["required"]
      ]);
@@ -113,6 +114,7 @@ class AdminBreedingController extends Controller
      $formData = $request->validate([
           "name" => ["required"],
           "description" => ["required"],
+          "remark" => ["required"],
           "price" =>  ["required"],
           "quantity" =>  ["required"]
      ]);
@@ -149,6 +151,7 @@ class AdminBreedingController extends Controller
      $formData = $request->validate([
             "name" => ["required"],
           "description" => ["required"],
+          "remark" => ["required"],
           "price" =>  ["required"],
           "quantity" =>  ["required"]
      ]);
@@ -171,6 +174,7 @@ class AdminBreedingController extends Controller
      $formData = $request->validate([
             "name" => ["required"],
           "description" => ["required"],
+          "remark" => ["required"],
           "price" =>  ["required"],
           "quantity" =>  ["required"]
      ]);
