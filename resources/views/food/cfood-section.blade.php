@@ -54,8 +54,8 @@
     <div class="row text-center">
       @forelse ($chickenfoods as $chickenfood)
       <div class="col-md-4 mb-4">
-        <div class="card m-5 rounded-pill text-center overflow-hidden" style="width:18rem;border:none;">
-          <img src="/storage/{{$chickenfood->image}}" class="card-img-top" alt="..." style="height:300px;width:300px;">
+        <div class="card m-5 text-center overflow-hidden" style="width:18rem;border:none;">
+          <img src="/storage/{{$chickenfood->image}}" class="card-img-top" alt="..." style="height:250px;width:250px;">
           <div class="card-body">
             <h5 class="card-title">{{$chickenfood->code}}</h5>
             <div class="tags mb-2">

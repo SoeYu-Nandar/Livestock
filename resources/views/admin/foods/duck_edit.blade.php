@@ -1,5 +1,5 @@
 <x-admin-layout>
-    <h3 class="my-3 text-center text-primary">Cow-Food Edit Form</h3>
+    <h3 class="my-3 text-center text-primary">Duck-Food Edit Form</h3>
     <x-card-wrapper>
         <form enctype="multipart/form-data" action="/admin/foods/duck_food/{{$duckfood->id}}/update" method="POST">
             @method('patch')
